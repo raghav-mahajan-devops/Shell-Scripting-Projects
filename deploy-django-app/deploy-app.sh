@@ -32,29 +32,17 @@ function install_requirements {
 	compose_install=$(which docker-compose)
 	echo -e "**************************************** updating the apt-get ******************************** \n" 
 	sudo apt-get update
-	if [ -z "$docker_install" ];then
-		echo -e "******************************** installing the docker ******************************* \n"
-		sudo apt-get install -y docker.io
-	else
-		echo -e "******************************** Docker is already installed ************************* \n"
+	package=(docker.io nginx docker-compose)
 
-	fi
-
-	if [ -z "$nginx_install" ];then
-                echo -e "******************************** installing the nginx ******************************** \n"
-                sudo apt-get install -y nginx
-        else
-                echo -e "******************************** Nginx is already installed ************************** \n"
-
-        fi
-
-	if [ -z "$compose_install" ];then
-                echo -e "******************************* installing the docker composer *********************** \n"
-                sudo apt-get install -y docker-compose
-        else
-                echo -e "******************************* Docker composer is already installed ***************** \n"
-
-        fi
+	for pkg in "${package[@]}";do
+		installed=$(dpkg -s ${pkg})
+		if [ -z "$installed" ];then
+			echo -e "******************************** installing the ${pkg} ******************************* \n"
+			sudo apt-get install -y "$pkg"
+		else
+			echo -e "******************************** ${pkg} is already installed ************************* \n"
+		fi
+	done
 
 }
 
