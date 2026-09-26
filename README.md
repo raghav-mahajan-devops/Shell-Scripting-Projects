@@ -7,6 +7,7 @@ A collection of small DevOps automation projects written in Bash. They target De
 | Create EC2 instance | [automate-create-ec2/create-ec2.sh](automate-create-ec2/create-ec2.sh) | Installs the AWS CLI if needed and launches an EC2 instance |
 | Rotating backups | [backup-rotating-script/backup.sh](backup-rotating-script/backup.sh) | Zips a directory and keeps only the 5 newest backups |
 | Deploy Django app | [deploy-django-app/deploy-app.sh](deploy-django-app/deploy-app.sh) | Clones a Django notes app and runs it in Docker |
+| System health monitor | [system-health-monitor/health_monitor.sh](system-health-monitor/health_monitor.sh) | Logs CPU, memory, disk and nginx status with warnings |
 
 ## 1. automate-create-ec2
 
@@ -62,6 +63,43 @@ Deploys the [django-notes-app](https://github.com/LondheShubham153/django-notes-
 ```
 
 Each step stops the script with an error message if it fails.
+
+## 4. system-health-monitor
+
+Checks the health of the machine and appends one line per metric to `logs.txt` in the current directory. A metric is logged as `[WARNING]` when it crosses its threshold, otherwise as `[INFO]`. The script then prints the whole log file.
+
+| Check | How it is measured | Warning when |
+|---|---|---|
+| CPU usage | `mpstat 1 3` (average of 3 samples) | >= 50% |
+| Memory usage | `free` (used / total) | >= 75% |
+| Disk usage on `/` | `df -h /` | >= 70% |
+| nginx service | `systemctl is-active nginx` | `inactive` |
+
+`sysstat` (which provides `mpstat`) is installed automatically with `apt-get` if it is missing, so `sudo` access is needed on first run.
+
+**Usage**
+```bash
+./health_monitor.sh
+```
+
+**Example log output**
+```text
+2026-09-26 10:00:01 [INFO] CPU: 12
+2026-09-26 10:00:01 [INFO] MEM: 41
+2026-09-26 10:00:01 [WARNING] DISK: 78
+2026-09-26 10:00:01 [INFO] NGINX: active
+```
+
+**Run every 5 minutes with cron**
+```cron
+*/5 * * * * cd /path/to/system-health-monitor && ./health_monitor.sh >/dev/null 2>&1
+```
+The `cd` matters because the log file is written to the current directory.
+
+**Known limitations**
+- The description in the script mentions network checks and alerts to an administrator. Neither is implemented yet; warnings only go to the log file.
+- Only `inactive` nginx is flagged. States such as `failed` are logged as `[INFO]`.
+- The first line of the script has the shebang and the comment block joined on one line, so the `<<COMMENT` block does not work as intended.
 
 ## Getting started
 
