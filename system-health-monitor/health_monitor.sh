@@ -1,5 +1,10 @@
-#! /bin/bash                                                                                                                                                                                                                                                              <<COMMENT                                                                                                                            This script is used to monitor the health of the system. It checks for CPU usage, memory usage, disk space, and network connectivity. If any of these metrics exceed predefined thresholds, it will send an alert to the system administrator.
+#!/bin/bash
 
+<<COMMENT                                                                                                                               
+This script is used to monitor the health of the system. 
+It checks for CPU usage, memory usage, disk space, and network connectivity. 
+it will create a log entry in logs.txt with the timestamp and the metric that 
+exceeded the threshold mark them as warning or info based on the threshold.
 COMMENT
 
 check_mpstat=$(which mpstat)
