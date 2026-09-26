@@ -1,76 +1,81 @@
-#! /bin/bash
-
+#!/bin/bash
 
 << "task"
 Deploy a django app and
 handle the code error
 task
 
-# clone the code 
+repo_url="https://github.com/LondheShubham153/django-notes-app.git"
+repo_dir="django-notes-app"
+image_name="notesapp"
+container_name="notesapp"
+
+# clone the code
 
 function clone_repo {
-	
-	cloned=$(find /home -type d -name "django-notes-app" 2>/dev/null)
-	if [ ! -n "$cloned" ];then
+
+	if [ ! -d "${repo_dir}" ]; then
 		echo -e "******************************* start cloning the app ****************************** \n"
-		git clone https://github.com/LondheShubham153/django-notes-app.git
-		if [ $? -eq 0 ];then
+		if git clone "${repo_url}"; then
 			echo -e "*********************** App is cloned successfully ************************* \n"
 		else
-			echo -e "*********************** App is not cloned sum failures occur *************** \n"
+			echo -e "*********************** App is not cloned, some failure occurred *********** \n"
+			return 1
 		fi
 	else
 		echo -e "******************************* App is already cloned ****************************** \n"
 	fi
 }
 
-# function install the requirements 
+# function install the requirements
 
 function install_requirements {
-	docker_install=$(which docker.io)
-	nginx_install=$(which nginx)
-	compose_install=$(which docker-compose)
-	echo -e "**************************************** updating the apt-get ******************************** \n" 
-	sudo apt-get update
-	package=(docker.io nginx docker-compose)
+	echo -e "**************************************** updating the apt-get ******************************** \n"
+	sudo apt-get update || return 1
+	local package=(docker.io nginx docker-compose)
 
-	for pkg in "${package[@]}";do
-		installed=$(dpkg -s ${pkg})
-		if [ -z "$installed" ];then
-			echo -e "******************************** installing the ${pkg} ******************************* \n"
-			sudo apt-get install -y "$pkg"
-		else
+	for pkg in "${package[@]}"; do
+		if dpkg -s "${pkg}" >/dev/null 2>&1; then
 			echo -e "******************************** ${pkg} is already installed ************************* \n"
+		else
+			echo -e "******************************** installing the ${pkg} ******************************* \n"
+			sudo apt-get install -y "${pkg}" || { echo "Failed to install ${pkg}"; return 1; }
 		fi
 	done
-
 }
 
 function restart_services {
+	echo -e "*************************************** Enabling and starting services *********************** \n"
+	sudo systemctl enable --now docker || return 1
+	sudo systemctl enable --now nginx || return 1
+
 	echo -e "*************************************** Changing the ownership for docker.sock *************** \n"
-	sudo chown $USER /var/run/docker.sock
-	sudo systemctl enable docker
-	sudo systemctl enable nginx
+	sudo chown "$USER" /var/run/docker.sock || return 1
 }
 
 function deploy_app {
-	cd django-notes-app
-	echo "****************************************** Listing the folders in the repo ********************** \n"
-	ls -l 
+	cd "${repo_dir}" || { echo "Cannot enter ${repo_dir}"; return 1; }
+	echo -e "****************************************** Listing the folders in the repo ********************** \n"
+	ls -l
 	echo -e "*************************************** building and deploying the app *********************** \n"
-	docker build -t notesapp .
-	docker run -d -p 8000:8000 notesapp:latest
+
+	docker build -t "${image_name}" . || { echo "docker build failed"; return 1; }
+
+	# remove a previous container so re-running the script does not hit a port conflict
+	if docker ps -a --format '{{.Names}}' | grep -qx "${container_name}"; then
+		echo "Removing the existing ${container_name} container"
+		docker rm -f "${container_name}" || return 1
+	fi
+
+	docker run -d --name "${container_name}" -p 8000:8000 "${image_name}:latest" || { echo "docker run failed"; return 1; }
 	echo -e "*************************************** App build is successfully **************************** \n"
-}	
-
-
+}
 
 function run_script {
-
-clone_repo
-install_requirements
-restart_services
-deploy_app
+	clone_repo || exit 1
+	install_requirements || exit 1
+	restart_services || exit 1
+	deploy_app || exit 1
 }
 
 run_script
