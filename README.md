@@ -8,6 +8,7 @@ A collection of small DevOps automation projects written in Bash. They target De
 | Rotating backups | [backup-rotating-script/backup.sh](backup-rotating-script/backup.sh) | Zips a directory and keeps only the 5 newest backups |
 | Deploy Django app | [deploy-django-app/deploy-app.sh](deploy-django-app/deploy-app.sh) | Clones a Django notes app and runs it in Docker |
 | System health monitor | [system-health-monitor/health_monitor.sh](system-health-monitor/health_monitor.sh) | Logs CPU, memory, disk and nginx status with warnings |
+| Nginx log analyzer | [nginx-log-analyzer/log_analyzer.sh](nginx-log-analyzer/log_analyzer.sh) | Summarizes an nginx access log: request count, top IPs/URLs, 4xx/5xx counts |
 
 ## 1. automate-create-ec2
 
@@ -100,6 +101,26 @@ The `cd` matters because the log file is written to the current directory.
 - The description in the script mentions network checks and alerts to an administrator. Neither is implemented yet; warnings only go to the log file.
 - Only `inactive` nginx is flagged. States such as `failed` are logged as `[INFO]`.
 - The first line of the script has the shebang and the comment block joined on one line, so the `<<COMMENT` block does not work as intended.
+
+## 5. nginx-log-analyzer
+
+Reads an nginx access log and prints a summary report to the terminal.
+
+**What it reports**
+- Total number of requests
+- Top 10 client IPs
+- Top 10 requested URLs
+- Number of 4xx (client error) responses
+- Number of 5xx (server error) responses
+
+**Usage**
+```bash
+./log_analyzer.sh <path_to_nginx_log>
+# example
+./log_analyzer.sh /var/log/nginx/access.log
+```
+
+The script exits with an error if no log file path is given. It assumes the standard nginx combined log format, where column 1 is the client IP, column 7 is the requested URL, and column 9 is the HTTP status code.
 
 ## Getting started
 
