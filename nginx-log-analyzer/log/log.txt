@@ -1,0 +1,161 @@
+26-11-16-07-19-56 : Checking the location of log file is given
+26-11-16-07-19-56 : log file location is given
+26-11-16-07-19-56 : checking file exist in the path
+26-11-16-07-19-56 : File not Exist stopping the script
+26-11-16-07-19-57 : Checking the location of log file is given
+26-11-16-07-19-57 : log file location is given
+26-11-16-07-19-57 : checking file exist in the path
+26-11-16-07-19-57 : File not Exist stopping the script
+26-11-16-07-19-58 : Checking the location of log file is given
+26-11-16-07-19-58 : log file location is given
+26-11-16-07-19-58 : checking file exist in the path
+26-11-16-07-19-58 : File not Exist stopping the script
+26-11-16-07-20-19 : Checking the location of log file is given
+26-11-16-07-20-19 : log file location is given
+26-11-16-07-20-19 : checking file exist in the path
+26-11-16-07-20-19 : File Exist
+26-11-16-07-20-19 : All requirements meet starting the script
+26-11-16-07-21-47 : Checking the location of log file is given
+26-11-16-07-21-47 : log file location is given
+26-11-16-07-21-47 : checking file exist in the path
+26-11-16-07-21-47 : File Exist
+26-11-16-07-21-47 : All requirements meet starting the script
+26-11-16-07-23-38 : Checking the location of log file is given
+26-11-16-07-23-38 : log file location is given
+26-11-16-07-23-38 : checking file exist in the path
+26-11-16-07-23-38 : File Exist
+26-11-16-07-23-38 : All requirements meet starting the script
+26-11-16-07-24-31 : Checking the location of log file is given
+26-11-16-07-24-31 : log file location is given
+26-11-16-07-24-31 : checking file exist in the path
+26-11-16-07-24-31 : File Exist
+26-11-16-07-24-31 : All requirements meet starting the script
+26-11-16-07-25-22 : Checking the location of log file is given
+26-11-16-07-25-22 : log file location is given
+26-11-16-07-25-22 : checking file exist in the path
+26-11-16-07-25-22 : File Exist
+26-11-16-07-25-22 : All requirements meet starting the script
+26-11-16-07-25-45 : Checking the location of log file is given
+26-11-16-07-25-45 : log file location is given
+26-11-16-07-25-45 : checking file exist in the path
+26-11-16-07-25-45 : File Exist
+26-11-16-07-25-45 : All requirements meet starting the script
+26-11-16-07-25-49 : Checking the location of log file is given
+26-11-16-07-25-49 : log file location is given
+26-11-16-07-25-49 : checking file exist in the path
+26-11-16-07-25-49 : File Exist
+26-11-16-07-25-49 : All requirements meet starting the script
+26-11-16-07-26-09 : Checking the location of log file is given
+26-11-16-07-26-09 : log file location is given
+26-11-16-07-26-09 : checking file exist in the path
+26-11-16-07-26-09 : File Exist
+26-11-16-07-26-09 : All requirements meet starting the script
+26-11-16-07-26-25 : Checking the location of log file is given
+26-11-16-07-26-25 : log file location is given
+26-11-16-07-26-25 : checking file exist in the path
+26-11-16-07-26-25 : File Exist
+26-11-16-07-26-25 : All requirements meet starting the script
+26-11-16-07-26-48 : Checking the location of log file is given
+26-11-16-07-26-48 : log file location is given
+26-11-16-07-26-48 : checking file exist in the path
+26-11-16-07-26-48 : File Exist
+26-11-16-07-26-48 : All requirements meet starting the script
+26-11-16-07-26-59 : Checking the location of log file is given
+26-11-16-07-26-59 : log file location is given
+26-11-16-07-26-59 : checking file exist in the path
+26-11-16-07-26-59 : File Exist
+26-11-16-07-26-59 : All requirements meet starting the script
+26-11-16-07-42-16 : Checking the location of log file is given
+26-11-16-07-42-16 : log file location is given
+26-11-16-07-42-16 : checking file exist in the path
+26-11-16-07-42-16 : File Exist
+26-11-16-07-42-16 : All requirements meet starting the script
+26-11-16-07-42-16 : Ip : 192.168.1.10
+26-11-16-07-42-16 : Ip : 10.0.0.5
+26-11-16-07-42-16 : Ip : 203.0.113.45
+26-11-16-07-42-16 : Ip : 198.51.100.23
+26-11-16-07-42-16 : Ip : 192.168.1.25
+26-11-16-07-42-16 : Url: /
+26-11-16-07-42-16 : Url: /login
+26-11-16-07-42-16 : Url: /api/users
+26-11-16-07-42-16 : Url: /static/css/style.css
+26-11-16-07-42-16 : Url: /dashboard
+26-11-16-07-42-39 : Checking the location of log file is given
+26-11-16-07-42-39 : log file location is given
+26-11-16-07-42-39 : checking file exist in the path
+26-11-16-07-42-39 : File Exist
+26-11-16-07-42-39 : All requirements meet starting the script
+26-11-16-07-42-39 : Ip : 192.168.1.10
+26-11-16-07-42-39 : Ip : 10.0.0.5
+26-11-16-07-42-39 : Ip : 203.0.113.45
+26-11-16-07-42-39 : Ip : 198.51.100.23
+26-11-16-07-42-39 : Ip : 192.168.1.25
+26-11-16-07-42-39 : Url: /
+26-11-16-07-42-39 : Url: /login
+26-11-16-07-42-39 : Url: /api/users
+26-11-16-07-42-39 : Url: /static/css/style.css
+26-11-16-07-42-39 : Url: /dashboard
+26-11-16-07-42-59 : Checking the location of log file is given
+26-11-16-07-42-59 : log file location is given
+26-11-16-07-42-59 : checking file exist in the path
+26-11-16-07-42-59 : File Exist
+26-11-16-07-42-59 : All requirements meet starting the script
+26-11-16-07-42-59 : Ip : 192.168.1.10
+26-11-16-07-42-59 : Ip : 10.0.0.5
+26-11-16-07-42-59 : Ip : 203.0.113.45
+26-11-16-07-42-59 : Ip : 198.51.100.23
+26-11-16-07-42-59 : Ip : 192.168.1.25
+26-11-16-07-42-59 : Url: /
+26-11-16-07-42-59 : Url: /login
+26-11-16-07-42-59 : Url: /api/users
+26-11-16-07-42-59 : Url: /static/css/style.css
+26-11-16-07-42-59 : Url: /dashboard
+26-11-16-07-44-50 : Checking the location of log file is given
+26-11-16-07-44-50 : log file location is given
+26-11-16-07-44-50 : checking file exist in the path
+26-11-16-07-44-50 : File Exist
+26-11-16-07-44-50 : All requirements meet starting the script
+26-11-16-07-44-50 : Ip : 192.168.1.10
+26-11-16-07-44-50 : Ip : 10.0.0.5
+26-11-16-07-44-50 : Ip : 203.0.113.45
+26-11-16-07-44-50 : Ip : 198.51.100.23
+26-11-16-07-44-50 : Ip : 192.168.1.25
+26-11-16-07-44-50 : Url: /
+26-11-16-07-44-50 : Url: /login
+26-11-16-07-44-50 : Url: /api/users
+26-11-16-07-44-50 : Url: /static/css/style.css
+26-11-16-07-44-50 : Url: /dashboard
+26-11-16-07-45-43 : Checking the location of log file is given
+26-11-16-07-45-43 : log file location is given
+26-11-16-07-45-43 : checking file exist in the path
+26-11-16-07-45-43 : File Exist
+26-11-16-07-45-43 : All requirements meet starting the script
+26-11-16-07-45-43 : Ip : 192.168.1.10
+26-11-16-07-45-43 : Ip : 10.0.0.5
+26-11-16-07-45-43 : Ip : 203.0.113.45
+26-11-16-07-45-43 : Ip : 198.51.100.23
+26-11-16-07-45-43 : Ip : 192.168.1.25
+26-11-16-07-45-43 : Url: /
+26-11-16-07-45-43 : Url: /login
+26-11-16-07-45-43 : Url: /api/users
+26-11-16-07-45-43 : Url: /static/css/style.css
+26-11-16-07-45-43 : Url: /dashboard
+26-11-16-07-45-43 : Total 400 erros : 81
+26-11-16-07-45-43 : Total 500 erros : 16
+26-11-16-07-45-58 : Checking the location of log file is given
+26-11-16-07-45-58 : log file location is given
+26-11-16-07-45-58 : checking file exist in the path
+26-11-16-07-45-58 : File Exist
+26-11-16-07-45-58 : All requirements meet starting the script
+26-11-16-07-45-58 : Ip : 192.168.1.10
+26-11-16-07-45-58 : Ip : 10.0.0.5
+26-11-16-07-45-58 : Ip : 203.0.113.45
+26-11-16-07-45-58 : Ip : 198.51.100.23
+26-11-16-07-45-58 : Ip : 192.168.1.25
+26-11-16-07-45-58 : Url: /
+26-11-16-07-45-58 : Url: /login
+26-11-16-07-45-58 : Url: /api/users
+26-11-16-07-45-58 : Url: /static/css/style.css
+26-11-16-07-45-58 : Url: /dashboard
+26-11-16-07-45-58 : Total 400 erros : 81
+26-11-16-07-45-58 : Total 500 erros : 16

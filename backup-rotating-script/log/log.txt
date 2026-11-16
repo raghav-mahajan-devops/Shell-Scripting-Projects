@@ -1,0 +1,422 @@
+ 26-11-15-09-18-10 checking if arguments are given 
+ 26-11-15-09-18-10 Arguments are given 
+ 26-11-15-09-18-10 Checking data folder exist 
+ 26-11-15-09-18-10 Data folder exist 
+ 26-11-15-09-18-10 Checking backup folder exist 
+ 26-11-15-09-18-10 backup folder exist 
+ 26-11-15-09-18-10 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-18-10 checking tar is installed ... 
+ 26-11-15-09-18-10 Tar is already installed 
+ 26-11-15-09-18-10 Backup is successfull 
+ 26-11-15-09-21-44 checking if arguments are given 
+ 26-11-15-09-21-44 Arguments are given 
+ 26-11-15-09-21-44 Checking data folder exist 
+ 26-11-15-09-21-44 Data folder exist 
+ 26-11-15-09-21-44 Checking backup folder exist 
+ 26-11-15-09-21-44 backup folder exist 
+ 26-11-15-09-21-44 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-21-44 checking tar is installed ... 
+ 26-11-15-09-21-44 Tar is already installed 
+ 26-11-15-09-21-44 Backup is successfull 
+ 26-11-15-09-30-40 checking if arguments are given 
+ 26-11-15-09-30-40 Arguments are given 
+ 26-11-15-09-30-40 Checking data folder exist 
+ 26-11-15-09-30-40 Data folder exist 
+ 26-11-15-09-30-40 Checking backup folder exist 
+ 26-11-15-09-30-40 backup folder exist 
+ 26-11-15-09-30-40 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-30-40 checking tar is installed ... 
+ 26-11-15-09-30-40 Tar is already installed 
+ 26-11-15-09-30-40 Backup is successfull 
+ 26-11-15-09-30-45 checking if arguments are given 
+ 26-11-15-09-30-45 Arguments are given 
+ 26-11-15-09-30-45 Checking data folder exist 
+ 26-11-15-09-30-45 Data folder exist 
+ 26-11-15-09-30-45 Checking backup folder exist 
+ 26-11-15-09-30-45 backup folder exist 
+ 26-11-15-09-30-45 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-30-45 checking tar is installed ... 
+ 26-11-15-09-30-45 Tar is already installed 
+ 26-11-15-09-30-45 Backup is successfull 
+ 26-11-15-09-30-46 checking if arguments are given 
+ 26-11-15-09-30-46 Arguments are given 
+ 26-11-15-09-30-46 Checking data folder exist 
+ 26-11-15-09-30-46 Data folder exist 
+ 26-11-15-09-30-46 Checking backup folder exist 
+ 26-11-15-09-30-46 backup folder exist 
+ 26-11-15-09-30-46 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-30-46 checking tar is installed ... 
+ 26-11-15-09-30-46 Tar is already installed 
+ 26-11-15-09-30-46 Backup is successfull 
+ 26-11-15-09-30-47 checking if arguments are given 
+ 26-11-15-09-30-47 Arguments are given 
+ 26-11-15-09-30-47 Checking data folder exist 
+ 26-11-15-09-30-47 Data folder exist 
+ 26-11-15-09-30-47 Checking backup folder exist 
+ 26-11-15-09-30-47 backup folder exist 
+ 26-11-15-09-30-47 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-30-47 checking tar is installed ... 
+ 26-11-15-09-30-47 Tar is already installed 
+ 26-11-15-09-30-47 Backup is successfull 
+ 26-11-15-09-30-47 checking if arguments are given 
+ 26-11-15-09-30-47 Arguments are given 
+ 26-11-15-09-30-47 Checking data folder exist 
+ 26-11-15-09-30-47 Data folder exist 
+ 26-11-15-09-30-47 Checking backup folder exist 
+ 26-11-15-09-30-47 backup folder exist 
+ 26-11-15-09-30-47 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-30-47 checking tar is installed ... 
+ 26-11-15-09-30-47 Tar is already installed 
+ 26-11-15-09-30-47 Backup is successfull 
+ 26-11-15-09-30-48 checking if arguments are given 
+ 26-11-15-09-30-48 Arguments are given 
+ 26-11-15-09-30-48 Checking data folder exist 
+ 26-11-15-09-30-48 Data folder exist 
+ 26-11-15-09-30-48 Checking backup folder exist 
+ 26-11-15-09-30-48 backup folder exist 
+ 26-11-15-09-30-48 All requirements are fullfiled , ready to start backup 
+ 26-11-15-09-30-48 checking tar is installed ... 
+ 26-11-15-09-30-48 Tar is already installed 
+ 26-11-15-09-30-48 Backup is successfull 
+ 26-11-15-10-11-40 checking if arguments are given 
+ 26-11-15-10-11-40 Arguments are given 
+ 26-11-15-10-11-40 Checking data folder exist 
+ 26-11-15-10-11-40 Data folder exist 
+ 26-11-15-10-11-40 Checking backup folder exist 
+ 26-11-15-10-11-40 backup folder exist 
+ 26-11-15-10-11-40 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-11-40 checking tar is installed ... 
+ 26-11-15-10-11-40 Tar is already installed 
+ 26-11-15-10-11-40 Backup is successfull 
+ 26-11-15-10-11-40 Deleting the old backups 
+ 26-11-15-10-11-40 Deleting the old backups 
+ 26-11-15-10-11-40 old backup files are deleted successfully 
+ 26-11-15-10-12-42 checking if arguments are given 
+ 26-11-15-10-12-42 Arguments are given 
+ 26-11-15-10-12-42 Checking data folder exist 
+ 26-11-15-10-12-42 Data folder exist 
+ 26-11-15-10-12-42 Checking backup folder exist 
+ 26-11-15-10-12-42 backup folder exist 
+ 26-11-15-10-12-42 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-12-42 checking tar is installed ... 
+ 26-11-15-10-12-42 Tar is already installed 
+ 26-11-15-10-12-42 Backup is successfull 
+ 26-11-15-10-12-42 Deleting the old backups 
+ 26-11-15-10-12-42 Deleting the old backups 
+ 26-11-15-10-12-42 old backup files are deleted successfully 
+ 26-11-15-10-13-07 checking if arguments are given 
+ 26-11-15-10-13-07 Arguments are given 
+ 26-11-15-10-13-07 Checking data folder exist 
+ 26-11-15-10-13-07 Data folder exist 
+ 26-11-15-10-13-07 Checking backup folder exist 
+ 26-11-15-10-13-07 backup folder exist 
+ 26-11-15-10-13-07 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-13-07 checking tar is installed ... 
+ 26-11-15-10-13-07 Tar is already installed 
+ 26-11-15-10-13-07 Backup is successfull 
+ 26-11-15-10-13-07 Deleting the old backups 
+ 26-11-15-10-13-07 Deleting the old backups 
+ 26-11-15-10-13-07 old backup files are deleted successfully 
+ 26-11-15-10-13-47 checking if arguments are given 
+ 26-11-15-10-13-47 Arguments are given 
+ 26-11-15-10-13-47 Checking data folder exist 
+ 26-11-15-10-13-47 Data folder exist 
+ 26-11-15-10-13-47 Checking backup folder exist 
+ 26-11-15-10-13-47 backup folder exist 
+ 26-11-15-10-13-47 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-13-47 checking tar is installed ... 
+ 26-11-15-10-13-47 Tar is already installed 
+ 26-11-15-10-13-47 Backup is successfull 
+ 26-11-15-10-13-47 Deleting the old backups 
+ 26-11-15-10-13-47 Deleting the old backups 
+ 26-11-15-10-13-47 old backup files are deleted successfully 
+ 26-11-15-10-15-41 checking if arguments are given 
+ 26-11-15-10-15-41 Arguments are given 
+ 26-11-15-10-15-41 Checking data folder exist 
+ 26-11-15-10-15-41 Data folder exist 
+ 26-11-15-10-15-41 Checking backup folder exist 
+ 26-11-15-10-15-41 backup folder exist 
+ 26-11-15-10-15-41 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-15-41 checking tar is installed ... 
+ 26-11-15-10-15-41 Tar is already installed 
+ 26-11-15-10-15-41 Backup is successfull 
+ 26-11-15-10-15-41 Deleting the old backups 
+ 26-11-15-10-15-41 Deleting the old backups 
+ 26-11-15-10-15-41 old backup files are deleted successfully 
+ 26-11-15-10-16-16 checking if arguments are given 
+ 26-11-15-10-16-16 Arguments are given 
+ 26-11-15-10-16-16 Checking data folder exist 
+ 26-11-15-10-16-16 Data folder exist 
+ 26-11-15-10-16-16 Checking backup folder exist 
+ 26-11-15-10-16-16 backup folder exist 
+ 26-11-15-10-16-16 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-16-16 checking tar is installed ... 
+ 26-11-15-10-16-16 Tar is already installed 
+ 26-11-15-10-16-16 Backup is successfull 
+ 26-11-15-10-16-16 Deleting the old backups 
+ 26-11-15-10-16-16 Deleting the old backups 
+ 26-11-15-10-16-16 old backup files are deleted successfully 
+ 26-11-15-10-18-08 checking if arguments are given 
+ 26-11-15-10-18-08 Arguments are given 
+ 26-11-15-10-18-08 Checking data folder exist 
+ 26-11-15-10-18-08 Data folder exist 
+ 26-11-15-10-18-08 Checking backup folder exist 
+ 26-11-15-10-18-08 backup folder exist 
+ 26-11-15-10-18-08 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-18-08 checking tar is installed ... 
+ 26-11-15-10-18-08 Tar is already installed 
+ 26-11-15-10-18-08 Backup is successfull 
+ 26-11-15-10-18-08 Deleting the old backups 
+ 26-11-15-10-18-08 Deleting the old backups 
+ 26-11-15-10-18-08 old backup files are deleted successfully 
+ 26-11-15-10-18-40 checking if arguments are given 
+ 26-11-15-10-18-40 Arguments are given 
+ 26-11-15-10-18-40 Checking data folder exist 
+ 26-11-15-10-18-40 Data folder exist 
+ 26-11-15-10-18-40 Checking backup folder exist 
+ 26-11-15-10-18-40 backup folder exist 
+ 26-11-15-10-18-40 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-18-40 checking tar is installed ... 
+ 26-11-15-10-18-40 Tar is already installed 
+ 26-11-15-10-18-40 Backup is successfull 
+ 26-11-15-10-18-40 Deleting the old backups 
+ 26-11-15-10-18-40 Deleting the old backups 
+ 26-11-15-10-18-40 old backup files are deleted successfully 
+ 26-11-15-10-20-15 checking if arguments are given 
+ 26-11-15-10-20-15 Arguments are given 
+ 26-11-15-10-20-15 Checking data folder exist 
+ 26-11-15-10-20-15 Data folder exist 
+ 26-11-15-10-20-15 Checking backup folder exist 
+ 26-11-15-10-20-15 backup folder exist 
+ 26-11-15-10-20-15 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-20-15 checking tar is installed ... 
+ 26-11-15-10-20-15 Tar is already installed 
+ 26-11-15-10-20-15 Backup is successfull 
+ 26-11-15-10-20-15 Deleting the old backups 
+ 26-11-15-10-20-15 Deleting the old backups 
+ 26-11-15-10-20-15 old backup files are deleted successfully 
+ 26-11-15-10-20-53 checking if arguments are given 
+ 26-11-15-10-20-53 Arguments are given 
+ 26-11-15-10-20-53 Checking data folder exist 
+ 26-11-15-10-20-53 Data folder exist 
+ 26-11-15-10-20-53 Checking backup folder exist 
+ 26-11-15-10-20-53 backup folder exist 
+ 26-11-15-10-20-53 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-20-53 checking tar is installed ... 
+ 26-11-15-10-20-53 Tar is already installed 
+ 26-11-15-10-20-53 Backup is successfull 
+ 26-11-15-10-20-53 Deleting the old backups 
+ 26-11-15-10-20-53 Deleting the old backups 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-10-16-16.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-10-15-41.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-10-13-47.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-10-13-07.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-10-12-42.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-10-11-40.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-30-48.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-30-47.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-30-46.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-30-45.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-30-40.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-21-44.tar.gz 
+ 26-11-15-10-20-53 file to be removed backup_26-11-15-09-18-10.tar.gz 
+ 26-11-15-10-20-53 old backup files are deleted successfully 
+ 26-11-15-10-21-20 checking if arguments are given 
+ 26-11-15-10-21-20 Arguments are given 
+ 26-11-15-10-21-20 Checking data folder exist 
+ 26-11-15-10-21-20 Data folder exist 
+ 26-11-15-10-21-20 Checking backup folder exist 
+ 26-11-15-10-21-20 backup folder exist 
+ 26-11-15-10-21-20 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-21-20 checking tar is installed ... 
+ 26-11-15-10-21-20 Tar is already installed 
+ 26-11-15-10-21-20 Backup is successfull 
+ 26-11-15-10-21-20 Deleting the old backups 
+ 26-11-15-10-21-20 Deleting the old backups 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-18-08.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-16-16.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-15-41.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-13-47.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-13-07.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-12-42.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-10-11-40.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-30-48.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-30-47.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-30-46.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-30-45.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-30-40.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-21-44.tar.gz 
+ 26-11-15-10-21-20 file to be removed backup_26-11-15-09-18-10.tar.gz 
+ 26-11-15-10-21-20 old backup files are deleted successfully 
+ 26-11-15-10-22-36 checking if arguments are given 
+ 26-11-15-10-22-36 Arguments are given 
+ 26-11-15-10-22-36 Checking data folder exist 
+ 26-11-15-10-22-36 Data folder exist 
+ 26-11-15-10-22-36 Checking backup folder exist 
+ 26-11-15-10-22-36 backup folder exist 
+ 26-11-15-10-22-36 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-22-36 checking tar is installed ... 
+ 26-11-15-10-22-36 Tar is already installed 
+ 26-11-15-10-22-36 Backup is successfull 
+ 26-11-15-10-22-36 Deleting the old backups 
+ 26-11-15-10-22-36 Deleting the old backups 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-18-40.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-18-08.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-16-16.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-15-41.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-13-47.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-13-07.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-12-42.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-10-11-40.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-30-48.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-30-47.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-30-46.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-30-45.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-30-40.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-21-44.tar.gz 
+ 26-11-15-10-22-36 file to be removed backup_26-11-15-09-18-10.tar.gz 
+ 26-11-15-10-22-36 old backup files are deleted successfully 
+ 26-11-15-10-23-07 checking if arguments are given 
+ 26-11-15-10-23-07 Arguments are given 
+ 26-11-15-10-23-07 Checking data folder exist 
+ 26-11-15-10-23-07 Data folder exist 
+ 26-11-15-10-23-07 Checking backup folder exist 
+ 26-11-15-10-23-07 backup folder exist 
+ 26-11-15-10-23-07 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-23-07 checking tar is installed ... 
+ 26-11-15-10-23-07 Tar is already installed 
+ 26-11-15-10-23-07 Backup is successfull 
+ 26-11-15-10-23-07 Deleting the old backups 
+ 26-11-15-10-23-07 Deleting the old backups 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-20-15.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-18-40.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-18-08.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-16-16.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-15-41.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-13-47.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-13-07.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-12-42.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-10-11-40.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-30-48.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-30-47.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-30-46.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-30-45.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-30-40.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-21-44.tar.gz 
+ 26-11-15-10-23-07 file to be removed backup_26-11-15-09-18-10.tar.gz 
+ 26-11-15-10-23-07 old backup files are deleted successfully 
+ 26-11-15-10-23-27 checking if arguments are given 
+ 26-11-15-10-23-27 Arguments are given 
+ 26-11-15-10-23-27 Checking data folder exist 
+ 26-11-15-10-23-27 Data folder exist 
+ 26-11-15-10-23-27 Checking backup folder exist 
+ 26-11-15-10-23-27 backup folder exist 
+ 26-11-15-10-23-27 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-23-27 checking tar is installed ... 
+ 26-11-15-10-23-27 Tar is already installed 
+ 26-11-15-10-23-27 Backup is successfull 
+ 26-11-15-10-23-27 Deleting the old backups 
+ 26-11-15-10-23-27 Deleting the old backups 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-20-53.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-20-15.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-18-40.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-18-08.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-16-16.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-15-41.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-13-47.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-13-07.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-12-42.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-10-11-40.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-30-48.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-30-47.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-30-46.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-30-45.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-30-40.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-21-44.tar.gz 
+ 26-11-15-10-23-27 file to be removed backup_26-11-15-09-18-10.tar.gz 
+ 26-11-15-10-23-27 old backup files are deleted successfully 
+ 26-11-15-10-25-07 checking if arguments are given 
+ 26-11-15-10-25-07 Arguments are given 
+ 26-11-15-10-25-07 Checking data folder exist 
+ 26-11-15-10-25-07 Data folder exist 
+ 26-11-15-10-25-07 Checking backup folder exist 
+ 26-11-15-10-25-07 backup folder exist 
+ 26-11-15-10-25-07 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-25-07 checking tar is installed ... 
+ 26-11-15-10-25-07 Tar is already installed 
+ 26-11-15-10-25-07 Backup is successfull 
+ 26-11-15-10-25-07 Deleting the old backups 
+ 26-11-15-10-25-07 Deleting the old backups 
+ 26-11-15-10-25-07 file to be removed backup_26-11-15-10-21-20.tar.gz 
+ 26-11-15-10-25-23 checking if arguments are given 
+ 26-11-15-10-25-23 Arguments are given 
+ 26-11-15-10-25-23 Checking data folder exist 
+ 26-11-15-10-25-23 Data folder exist 
+ 26-11-15-10-25-23 Checking backup folder exist 
+ 26-11-15-10-25-23 backup folder exist 
+ 26-11-15-10-25-23 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-25-23 checking tar is installed ... 
+ 26-11-15-10-25-23 Tar is already installed 
+ 26-11-15-10-25-23 Backup is successfull 
+ 26-11-15-10-25-23 Deleting the old backups 
+ 26-11-15-10-25-23 Deleting the old backups 
+ 26-11-15-10-25-23 file to be removed backup_26-11-15-10-22-36.tar.gz 
+ 26-11-15-10-25-43 checking if arguments are given 
+ 26-11-15-10-25-43 Arguments are given 
+ 26-11-15-10-25-43 Checking data folder exist 
+ 26-11-15-10-25-43 Data folder exist 
+ 26-11-15-10-25-43 Checking backup folder exist 
+ 26-11-15-10-25-43 backup folder exist 
+ 26-11-15-10-25-43 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-25-43 checking tar is installed ... 
+ 26-11-15-10-25-43 Tar is already installed 
+ 26-11-15-10-25-43 Backup is successfull 
+ 26-11-15-10-25-43 Deleting the old backups 
+ 26-11-15-10-25-43 Deleting the old backups 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-23-07.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-22-36.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-21-20.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-20-53.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-20-15.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-18-40.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-18-08.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-16-16.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-15-41.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-13-47.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-13-07.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-12-42.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-10-11-40.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-30-48.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-30-47.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-30-46.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-30-45.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-30-40.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-21-44.tar.gz 
+ 26-11-15-10-25-43 file to be removed backup_26-11-15-09-18-10.tar.gz 
+ 26-11-15-10-25-43 old backup files are deleted successfully 
+ 26-11-15-10-25-56 checking if arguments are given 
+ 26-11-15-10-25-56 Arguments are given 
+ 26-11-15-10-25-56 Checking data folder exist 
+ 26-11-15-10-25-56 Data folder exist 
+ 26-11-15-10-25-56 Checking backup folder exist 
+ 26-11-15-10-25-56 backup folder exist 
+ 26-11-15-10-25-56 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-25-56 checking tar is installed ... 
+ 26-11-15-10-25-56 Tar is already installed 
+ 26-11-15-10-25-56 Backup is successfull 
+ 26-11-15-10-25-56 Deleting the old backups 
+ 26-11-15-10-25-56 Deleting the old backups 
+ 26-11-15-10-25-56 file to be removed backup_26-11-15-10-23-27.tar.gz 
+ 26-11-15-10-25-56 old backup files are deleted successfully 
+ 26-11-15-10-26-37 checking if arguments are given 
+ 26-11-15-10-26-37 Arguments are given 
+ 26-11-15-10-26-37 Checking data folder exist 
+ 26-11-15-10-26-37 Data folder exist 
+ 26-11-15-10-26-37 Checking backup folder exist 
+ 26-11-15-10-26-37 backup folder exist 
+ 26-11-15-10-26-37 All requirements are fullfiled , ready to start backup 
+ 26-11-15-10-26-37 checking tar is installed ... 
+ 26-11-15-10-26-37 Tar is already installed 
+ 26-11-15-10-26-37 Backup is successfull 
+ 26-11-15-10-26-37 Deleting the old backups 
+ 26-11-15-10-26-37 Nothing to be deleted 
