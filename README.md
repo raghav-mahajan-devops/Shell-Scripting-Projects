@@ -10,6 +10,7 @@ A collection of small DevOps automation projects written in Bash. They target De
 | System health monitor | [system-health-monitor/health_monitor.sh](system-health-monitor/health_monitor.sh) | Logs CPU, memory, disk and nginx status with warnings |
 | Nginx log analyzer | [nginx-log-analyzer/log_analyzer.sh](nginx-log-analyzer/log_analyzer.sh) | Summarizes an nginx access log: request count, top 5 IPs/URLs, 4xx/5xx counts |
 | Linux user management | [linux-user-management/manage_users.sh](linux-user-management/manage_users.sh) | Creates users and groups in bulk from a CSV file |
+| File organizer | [file_organizer/file_organizer.sh](file_organizer/file_organizer.sh) | Moves files into `images/`, `web/`, `documents/` and `others/` by their real file type |
 
 ## 1. automate-create-ec2
 
@@ -32,13 +33,13 @@ Creates an EC2 instance and waits until it is `running`.
 
 ## 2. backup-rotating-script
 
-Archives a directory into a compressed `backup_<timestamp>.tar.gz` file, then deletes older files so that only the **4 newest** remain in the backup directory. Every step is printed to the terminal and appended to `log/log.txt`.
+Archives a directory into a compressed `backup_<timestamp>.tar.gz` file, then deletes older backups so that only the **4 newest** `backup_*.tar.gz` files remain. Every step is printed to the terminal and appended to `log/log.txt`.
 
 **What it does**
 1. Checks that the source directory and the backup directory both exist. It stops with an error if either is missing.
 2. Checks that `tar` is installed, and installs it with `apt` if it is not.
 3. Creates `<backup_dir>/backup_YY-MM-DD-HH-MM-SS.tar.gz` from the source directory (`tar -czvf`).
-4. Lists the backup directory newest first (`ls -t`) and deletes every file after the 4th one.
+4. Lists only the `backup_*.tar.gz` files in the backup directory, newest first (`ls -t`), and deletes every one after the 4th. Other files in the backup directory are never touched.
 
 The script runs with `set -euo pipefail`, so it stops at the first failing command. If `tar` fails, no old backups are deleted.
 
@@ -83,11 +84,10 @@ tar -xzvf backup/backup_26-11-15-10-26-37.tar.gz -C /path/to/restore
 The `cd` is needed because of the relative `log/` path. Terminal output can be discarded because the script already writes its own log.
 
 **Known limitations**
-- Rotation deletes **any** file in the backup directory, not only `backup_*.tar.gz`. Use a directory that holds nothing but these backups.
 - The backup directory is not created automatically. Create it first with `mkdir -p`.
 - Running without arguments fails with `$1: unbound variable` instead of printing the usage message. `set -u` stops the script before the argument check is reached.
 - If `tar` has to be installed, the archive is not created in that run. Run the script again.
-- The script prints two debug numbers before deleting: the total number of files and how many will be removed.
+- The script prints two debug numbers before deleting: the total number of backups and how many will be removed.
 
 ## 3. deploy-django-app
 
@@ -242,9 +242,74 @@ At the end it prints how many users were created and how many were skipped.
 
 **Requirements:** `sudo` access and `openssl`.
 
+## 7. file_organizer
+
+Moves the files in a folder into category folders based on their real file type, not their extension. Every step is printed to the terminal and appended to `log/log.txt`.
+
+**How files are sorted**
+
+The script runs `file -b <name>` on each file and uses the first word of the result, for example `JPEG` from `JPEG image data, ...`. The `-b` flag leaves the file name out of the result, so names with spaces are handled correctly.
+
+| `file` reports | Moved to | Typical files |
+|---|---|---|
+| `JPEG`, `PNG` | `images/` | `.jpg`, `.png` |
+| `HTML`, or `ASCII`/`Unicode` text in a file whose name ends in `.css` | `web/` | `.html`, `.css` |
+| `PDF`, `Microsoft` | `documents/` | `.pdf`, `.docx`, `.xlsx`, `.pptx` |
+| anything else | `others/` | `.txt`, `.csv`, shell scripts, subfolders |
+
+**What it does**
+1. Checks that exactly one argument is given and that the folder exists.
+2. Lists the folder with `ls` and logs the file count and each file name.
+3. For each entry, works out its type with `file -b` and picks a category folder.
+4. The `move_file` function creates that folder if it is missing (`mkdir -p`) and moves the entry into it with `mv`. If a file with the same name is already in the target folder, it is **skipped** and logged, never overwritten.
+
+The category folders are created in the **current directory**, not inside the folder being organized. Files are **moved**, so the source folder is empty afterwards.
+
+**Usage**
+```bash
+cd file_organizer
+./file_organizer.sh <folder_to_organize>
+# example: work on a copy so the sample files stay in messy_folder
+cp -r messy_folder test_folder
+./file_organizer.sh test_folder
+```
+
+Running it directly on `messy_folder` moves the sample files out of it, and git will show them as deleted.
+
+Run it from inside `file_organizer/`. The script log path `./log/log.txt` is relative to the current directory, and the script stops if there is no `log/` folder there.
+
+**Result with the sample files**
+```text
+images/     133859201093936930.jpg  image.png
+web/        cybersecurity_roadmap_2026.html  error.html
+documents/  DevOps_Learning_Plan_Tracker.xlsx  Roadmap_topic_map.pdf
+```
+
+**Example output** (trimmed)
+```text
+26-11-17-15-18-49: Arguments are given proceeding next...
+26-11-17-15-18-49: messy_folder exist in current directory proceeding next...
+26-11-17-15-18-49: no of files 6
+FileName :image.png
+fileType: PNG
+26-11-17-15-18-49: Folder images exist moving to next step
+26-11-17-15-18-49: Moving image.png into images folder
+26-11-17-15-18-49: File image.png is moved to images folder successfully
+FileName :Roadmap_topic_map.pdf
+fileType: PDF
+26-11-17-15-18-49: Folder documents not exist, creating it
+26-11-17-15-18-49: File Roadmap_topic_map.pdf is moved to documents folder successfully
+```
+
+**Requirements:** the `file` command. It is preinstalled on most Ubuntu systems; minimal images and containers may need `sudo apt-get install -y file`.
+
+**Known limitations**
+- Running without arguments fails with `$1: unbound variable` instead of printing the usage message. `set -u` stops the script before the argument check is reached.
+- Skipped files stay in the source folder. Rename them and run the script again to move them.
+
 ## Command reference
 
-Every command and flag used across the scripts. The **Used in** column shows the script: `ec2` = create-ec2.sh, `backup` = backup.sh, `deploy` = deploy-app.sh, `health` = health_monitor.sh, `nginx` = log_analyzer.sh, `users` = manage_users.sh.
+Every command and flag used across the scripts. The **Used in** column shows the script: `ec2` = create-ec2.sh, `backup` = backup.sh, `deploy` = deploy-app.sh, `health` = health_monitor.sh, `nginx` = log_analyzer.sh, `users` = manage_users.sh, `organizer` = file_organizer.sh.
 
 ### Files and text processing
 
@@ -252,7 +317,7 @@ Every command and flag used across the scripts. The **Used in** column shows the
 |---|---|---|---|
 | `cat` | `cat file` | Print a file's content | users, health |
 | `wc` | `-l` | Count lines | nginx, users |
-| `awk` | `'{print $1}'` | Print a column (`$1` = first, `$NF` = last) | nginx, users, health |
+| `awk` | `'{print $1}'` | Print a column (`$1` = first, `$NF` = last) | nginx, users, health, organizer |
 | `awk` | `-F,` | Use a comma as the field separator (CSV) | users |
 | `awk` | `-v line=$i` | Pass a shell variable into awk | users |
 | `awk` | `NR==2`, `NR<=5` | Select lines by line number | nginx, users, health |
@@ -261,15 +326,20 @@ Every command and flag used across the scripts. The **Used in** column shows the
 | `sort` | `sort` / `-nr` | Sort alphabetically / numerically in reverse | nginx |
 | `uniq` | `-c` | Collapse duplicate lines and prefix each with its count | nginx |
 | `head` | `-n 5` | Keep only the first 5 lines | nginx |
-| `tee` | `-a file` | Print to the terminal and append to a file at the same time | backup |
+| `tee` | `-a file` | Print to the terminal and append to a file at the same time | backup, organizer |
+| `file` | `-b path` | Detect a file's real type from its content, e.g. `PNG image data`; `-b` (brief) leaves out the file name | organizer |
 | `sed` | `'s/%//'` | Substitute: remove the `%` character | health |
 | `grep` | `-q` `-x` | Quiet (no output, only exit code); match the whole line only | deploy |
+| `ls` | `ls dir` | List the files in a folder | organizer |
 | `ls` | `-t` | List files newest first | backup |
+| `ls` | `-t -- backup_*.tar.gz` | List only files matching a pattern, newest first | backup |
 | `ls` | `-l` | Long listing (permissions, size, date) | deploy |
+| `mv` | `mv -- src dest/` | Move a file or folder into a folder (`--` makes names starting with `-` safe) | organizer |
+| `mkdir` | `-p` | Create the directory and any parents, no error if it exists | organizer |
 | `rm` | `-f` | Force, ignore missing files | backup |
 | `rm` | `-rf` | Remove recursively and forcefully | ec2 |
 | `rm` | `--` | End of options, so filenames starting with `-` are safe | backup |
-| `date` | `+%y-%m-%d-%H-%M-%S` | Print the date/time in a custom format (`%y` = 2-digit year) | backup, nginx, health |
+| `date` | `+%y-%m-%d-%H-%M-%S` | Print the date/time in a custom format (`%y` = 2-digit year) | backup, nginx, health, organizer |
 
 ### Archives and downloads
 
@@ -349,19 +419,24 @@ Every command and flag used across the scripts. The **Used in** column shows the
 |---|---|---|
 | `command -v cmd` | Check whether a command exists (prints its path) | ec2, backup |
 | `echo -e` | Print and interpret escape sequences such as `\n` | ec2, deploy, nginx, users |
-| `set -euo pipefail` | Stop on any error (`-e`), on unset variables (`-u`), and on a failure anywhere in a pipe (`pipefail`) | backup, nginx |
-| `[[ ... ]]` | Bash test, safer than `[ ]` with empty or spaced values | backup, nginx |
-| `mapfile -t arr` | Read lines into an array, dropping the trailing newline | backup, nginx |
-| `< <(cmd)` | Process substitution: feed a command's output to another command as if it were a file | backup, nginx |
-| `local var` | Variable that exists only inside the function | ec2, deploy |
+| `set -euo pipefail` | Stop on any error (`-e`), on unset variables (`-u`), and on a failure anywhere in a pipe (`pipefail`) | backup, nginx, organizer |
+| `[[ ... ]]` | Bash test, safer than `[ ]` with empty or spaced values | backup, nginx, organizer |
+| `mapfile -t arr` | Read lines into an array, dropping the trailing newline | backup, nginx, organizer |
+| `< <(cmd)` | Process substitution: feed a command's output to another command as if it were a file | backup, nginx, organizer |
+| `local var` | Variable that exists only inside the function | ec2, deploy, organizer |
 | `sleep 5` | Wait 5 seconds | ec2 |
-| `cd dir` | Change directory | deploy |
+| `cd dir` | Change directory | deploy, backup |
 | `case ... esac` | Match a value against several patterns | ec2 |
 | `>>` | Append output to a file | nginx, health, users |
 | `2>&1`, `>/dev/null` | Redirect errors to the same place as output; discard output | ec2, deploy |
-| `$( ... )` | Command substitution: use a command's output as a value | ec2, backup, nginx, health, users |
+| `2>/dev/null` | Discard only error messages | backup |
+| `$( ... )` | Command substitution: use a command's output as a value | ec2, backup, nginx, health, users, organizer |
 | `${arr[@]:4}` | Array slice from index 4 onward (the files to delete) | backup |
-| `${#arr[@]}` | Number of elements in an array | backup |
+| `${#arr[@]}` | Number of elements in an array | backup, organizer |
+| `for x in "${arr[@]}"` | Loop over every element of an array | backup, nginx, organizer |
+| `if ... elif ... else ... fi` | Choose between several branches | organizer |
+| `if cmd; then` | Run a command and branch on whether it succeeded, without `$?` | organizer |
+| `return 0` | Leave a function early | organizer |
 
 **Special variables:** `$1`, `$2`... (arguments), `$@` / `$*` (all arguments), `$#` (argument count), `$0` (script name), `$?` (exit code of the last command), `$USER` (current user).
 
@@ -371,13 +446,16 @@ Every command and flag used across the scripts. The **Used in** column shows the
 |---|---|---|
 | `-z str` | String is empty | ec2, health, users |
 | `-n str` | String is not empty | backup |
-| `-d path` | Path is a directory | backup, deploy |
+| `-d path` | Path is a directory | backup, deploy, organizer |
 | `-f path` | Path is a regular file | nginx |
-| `-e path` | Path exists | backup |
-| `! test` | Negate a test, e.g. `[[ ! -d dir ]]` | backup |
-| `-eq`, `-ne` | Numbers equal / not equal | ec2, backup, nginx, users |
+| `-e path` | Path exists | backup, organizer |
+| `! test` | Negate a test, e.g. `[[ ! -d dir ]]` | backup, organizer |
+| `-eq`, `-ne` | Numbers equal / not equal | ec2, backup, nginx, users, organizer |
 | `-ge`, `-lt` | Greater or equal / less than | ec2, health |
-| `=`, `==` | String equals | ec2, health |
+| `=`, `==` | String equals | ec2, health, organizer |
+| `a \|\| b` | OR: true if either test is true, e.g. `[[ $t == 'JPEG' \|\| $t == 'PNG' ]]` | organizer |
+| `a && b` | AND: true only if both tests are true | organizer |
+| `== *.css` | Pattern match inside `[[ ]]`: the string ends in `.css` | organizer |
 
 ## Getting started
 

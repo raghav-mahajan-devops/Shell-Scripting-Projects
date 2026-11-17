@@ -43,7 +43,8 @@ Creting_backup() {
 }
 
 deleting_old_backups() {
-	mapfile -t backups < <(ls -t "$loc_of_backup")
+	# only list files created by this script, so nothing else in the backup folder is ever deleted
+	mapfile -t backups < <(cd "$loc_of_backup" && ls -t -- backup_*.tar.gz 2>/dev/null)
 	echo "${#backups[@]}"
 	old_backups=("${backups[@]:${backup_to_keep}}")
 	echo "${#old_backups[@]}"

@@ -7,7 +7,13 @@
 # linux-user-management writes generated user passwords here
 output.txt
 # backup-rotating-script archives
-backup-*.zip
+backup_*.tar.gz
+# file_organizer output folders and test copies
+file_organizer/images/
+file_organizer/web/
+file_organizer/documents/
+file_organizer/others/
+file_organizer/test_folder/
 
 # OS files
 .DS_Store
