@@ -1,0 +1,440 @@
+26-11-16-10-22-40: Arguments are given proceeding next...
+26-11-16-10-22-40: messy_folder exist in current directory proceeding next...
+26-11-16-10-22-40: Checking the total no of files in folder
+26-11-16-10-22-40: no of files 8
+26-11-16-10-22-40: File: 133859201093936930.jpg
+
+26-11-16-10-22-40: File: DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-10-22-40: File: Roadmap_topic_map.pdf
+
+26-11-16-10-22-40: File: cybersecurity_roadmap_2026.html
+
+26-11-16-10-22-40: File: error.html
+
+26-11-16-10-22-40: File: image.png
+
+26-11-16-10-22-40: File: index.html
+
+26-11-16-10-22-40: File: kunert-site-icon-clean-512.png
+
+26-11-16-10-22-40: Folder others exist moving to next step
+26-11-16-10-22-40: Moving file into folder others
+26-11-16-10-23-10: Arguments are given proceeding next...
+26-11-16-10-23-10: messy_folder exist in current directory proceeding next...
+26-11-16-10-23-10: Checking the total no of files in folder
+26-11-16-10-23-10: no of files 8
+26-11-16-10-23-10: File: 133859201093936930.jpg
+
+26-11-16-10-23-10: File: DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-10-23-10: File: Roadmap_topic_map.pdf
+
+26-11-16-10-23-10: File: cybersecurity_roadmap_2026.html
+
+26-11-16-10-23-10: File: error.html
+
+26-11-16-10-23-10: File: image.png
+
+26-11-16-10-23-10: File: index.html
+
+26-11-16-10-23-10: File: kunert-site-icon-clean-512.png
+
+26-11-16-10-23-10: Folder others exist moving to next step
+26-11-16-10-23-10: Moving file into folder others
+26-11-16-10-23-49: Arguments are given proceeding next...
+26-11-16-10-23-49: messy_folder exist in current directory proceeding next...
+26-11-16-10-23-49: Checking the total no of files in folder
+26-11-16-10-23-49: no of files 8
+26-11-16-10-23-49: File: 133859201093936930.jpg
+
+26-11-16-10-23-49: File: DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-10-23-49: File: Roadmap_topic_map.pdf
+
+26-11-16-10-23-49: File: cybersecurity_roadmap_2026.html
+
+26-11-16-10-23-49: File: error.html
+
+26-11-16-10-23-49: File: image.png
+
+26-11-16-10-23-49: File: index.html
+
+26-11-16-10-23-49: File: kunert-site-icon-clean-512.png
+
+26-11-16-10-23-49: Folder others exist moving to next step
+26-11-16-10-23-49: Moving file into folder others
+26-11-16-10-25-27: Arguments are given proceeding next...
+26-11-16-10-25-27: messy_folder exist in current directory proceeding next...
+26-11-16-10-25-27: Checking the total no of files in folder
+26-11-16-10-25-27: no of files 8
+26-11-16-10-25-27: File: 133859201093936930.jpg
+
+26-11-16-10-25-27: File: DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-10-25-27: File: Roadmap_topic_map.pdf
+
+26-11-16-10-25-27: File: cybersecurity_roadmap_2026.html
+
+26-11-16-10-25-27: File: error.html
+
+26-11-16-10-25-27: File: image.png
+
+26-11-16-10-25-27: File: index.html
+
+26-11-16-10-25-27: File: kunert-site-icon-clean-512.png
+
+26-11-16-10-25-27: Folder others exist moving to next step
+26-11-16-10-25-27: Moving file into folder others
+26-11-16-10-27-52: Arguments are given proceeding next...
+26-11-16-10-27-52: messy_folder exist in current directory proceeding next...
+26-11-16-10-27-52: Checking the total no of files in folder
+26-11-16-10-27-52: no of files 8
+26-11-16-10-27-52: File: 133859201093936930.jpg
+
+26-11-16-10-27-52: File: DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-10-27-52: File: Roadmap_topic_map.pdf
+
+26-11-16-10-27-52: File: cybersecurity_roadmap_2026.html
+
+26-11-16-10-27-52: File: error.html
+
+26-11-16-10-27-52: File: image.png
+
+26-11-16-10-27-52: File: index.html
+
+26-11-16-10-27-52: File: kunert-site-icon-clean-512.png
+
+26-11-16-10-27-52: Folder others exist moving to next step
+26-11-16-10-27-52: Moving file into folder others
+26-11-16-11-03-08: Arguments are given proceeding next...
+26-11-16-11-03-08: messy_folder exist in current directory proceeding next...
+26-11-16-11-03-08: Checking the total no of files in folder
+26-11-16-11-03-08: no of files 8
+26-11-16-11-03-08: File:133859201093936930.jpg
+
+26-11-16-11-03-08: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-03-08: File:Roadmap_topic_map.pdf
+
+26-11-16-11-03-08: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-03-08: File:error.html
+
+26-11-16-11-03-08: File:image.png
+
+26-11-16-11-03-08: File:index.html
+
+26-11-16-11-03-08: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-03-08: Folder others exist moving to next step
+26-11-16-11-03-08: Moving file into folder others
+26-11-16-11-04-04: Arguments are given proceeding next...
+26-11-16-11-04-04: messy_folder exist in current directory proceeding next...
+26-11-16-11-04-04: Checking the total no of files in folder
+26-11-16-11-04-04: no of files 8
+26-11-16-11-04-04: File:133859201093936930.jpg
+
+26-11-16-11-04-04: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-04-04: File:Roadmap_topic_map.pdf
+
+26-11-16-11-04-04: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-04-04: File:error.html
+
+26-11-16-11-04-04: File:image.png
+
+26-11-16-11-04-04: File:index.html
+
+26-11-16-11-04-04: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-04-04: Folder others exist moving to next step
+26-11-16-11-04-04: Moving file into folder others
+26-11-16-11-04-37: Arguments are given proceeding next...
+26-11-16-11-04-37: messy_folder exist in current directory proceeding next...
+26-11-16-11-04-37: Checking the total no of files in folder
+26-11-16-11-04-37: no of files 8
+26-11-16-11-04-37: File:133859201093936930.jpg
+
+26-11-16-11-04-37: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-04-37: File:Roadmap_topic_map.pdf
+
+26-11-16-11-04-37: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-04-37: File:error.html
+
+26-11-16-11-04-37: File:image.png
+
+26-11-16-11-04-37: File:index.html
+
+26-11-16-11-04-37: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-04-37: Folder others exist moving to next step
+26-11-16-11-04-37: Moving file into folder others
+26-11-16-11-07-14: Arguments are given proceeding next...
+26-11-16-11-07-14: messy_folder exist in current directory proceeding next...
+26-11-16-11-07-14: Checking the total no of files in folder
+26-11-16-11-07-14: no of files 8
+26-11-16-11-07-14: File:133859201093936930.jpg
+
+26-11-16-11-07-14: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-07-14: File:Roadmap_topic_map.pdf
+
+26-11-16-11-07-14: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-07-14: File:error.html
+
+26-11-16-11-07-14: File:image.png
+
+26-11-16-11-07-14: File:index.html
+
+26-11-16-11-07-14: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-07-14: Folder others exist moving to next step
+26-11-16-11-07-14: Moving file into folder others
+26-11-16-11-08-17: Arguments are given proceeding next...
+26-11-16-11-08-17: messy_folder exist in current directory proceeding next...
+26-11-16-11-08-17: Checking the total no of files in folder
+26-11-16-11-08-17: no of files 8
+26-11-16-11-08-17: File:133859201093936930.jpg
+
+26-11-16-11-08-17: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-08-17: File:Roadmap_topic_map.pdf
+
+26-11-16-11-08-17: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-08-17: File:error.html
+
+26-11-16-11-08-17: File:image.png
+
+26-11-16-11-08-17: File:index.html
+
+26-11-16-11-08-17: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-08-17: Folder others exist moving to next step
+26-11-16-11-08-17: Moving file into folder others
+26-11-16-11-09-09: Arguments are given proceeding next...
+26-11-16-11-09-09: messy_folder exist in current directory proceeding next...
+26-11-16-11-09-09: Checking the total no of files in folder
+26-11-16-11-09-09: no of files 8
+26-11-16-11-09-09: File:133859201093936930.jpg
+
+26-11-16-11-09-09: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-09-09: File:Roadmap_topic_map.pdf
+
+26-11-16-11-09-09: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-09-09: File:error.html
+
+26-11-16-11-09-09: File:image.png
+
+26-11-16-11-09-09: File:index.html
+
+26-11-16-11-09-09: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-09-09: Folder others exist moving to next step
+26-11-16-11-09-09: Moving file into folder others
+26-11-16-11-09-45: Arguments are given proceeding next...
+26-11-16-11-09-45: messy_folder exist in current directory proceeding next...
+26-11-16-11-09-45: Checking the total no of files in folder
+26-11-16-11-09-45: no of files 8
+26-11-16-11-09-45: File:133859201093936930.jpg
+
+26-11-16-11-09-45: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-09-45: File:Roadmap_topic_map.pdf
+
+26-11-16-11-09-45: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-09-45: File:error.html
+
+26-11-16-11-09-45: File:image.png
+
+26-11-16-11-09-45: File:index.html
+
+26-11-16-11-09-45: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-09-45: Folder others exist moving to next step
+26-11-16-11-09-45: Moving file into folder others
+26-11-16-11-11-40: Arguments are given proceeding next...
+26-11-16-11-11-40: messy_folder exist in current directory proceeding next...
+26-11-16-11-11-40: Checking the total no of files in folder
+26-11-16-11-11-40: no of files 8
+26-11-16-11-11-40: File:133859201093936930.jpg
+
+26-11-16-11-11-40: File:DevOps_Learning_Plan_Tracker.xlsx
+
+26-11-16-11-11-40: File:Roadmap_topic_map.pdf
+
+26-11-16-11-11-40: File:cybersecurity_roadmap_2026.html
+
+26-11-16-11-11-40: File:error.html
+
+26-11-16-11-11-40: File:image.png
+
+26-11-16-11-11-40: File:index.html
+
+26-11-16-11-11-40: File:kunert-site-icon-clean-512.png
+
+26-11-16-11-11-40: Folder others exist moving to next step
+26-11-16-11-11-40: Moving file into folder others
+26-11-16-11-15-39: Arguments are given proceeding next...
+26-11-16-11-15-39: messy_folder exist in current directory proceeding next...
+26-11-16-11-15-39: Checking the total no of files in folder
+26-11-16-11-15-39: no of files 8
+26-11-16-11-15-39: File:133859201093936930.jpg
+26-11-16-11-15-39: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-16-11-15-39: File:Roadmap_topic_map.pdf
+26-11-16-11-15-39: File:cybersecurity_roadmap_2026.html
+26-11-16-11-15-39: File:error.html
+26-11-16-11-15-39: File:image.png
+26-11-16-11-15-39: File:index.html
+26-11-16-11-15-39: File:kunert-site-icon-clean-512.png
+26-11-16-11-15-39: Images folder not exisit, creating it
+26-11-16-11-15-39: Folder created successfully
+26-11-16-11-15-39: Moving kunert-site-icon-clean-512.png into images folder
+26-11-16-11-18-40: Arguments are given proceeding next...
+26-11-16-11-18-40: messy_folder exist in current directory proceeding next...
+26-11-16-11-18-40: Checking the total no of files in folder
+26-11-16-11-18-40: no of files 8
+26-11-16-11-18-40: File:133859201093936930.jpg
+26-11-16-11-18-40: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-16-11-18-40: File:Roadmap_topic_map.pdf
+26-11-16-11-18-40: File:cybersecurity_roadmap_2026.html
+26-11-16-11-18-40: File:error.html
+26-11-16-11-18-40: File:image.png
+26-11-16-11-18-40: File:index.html
+26-11-16-11-18-40: File:kunert-site-icon-clean-512.png
+26-11-16-11-18-40: Images folder not exisit, creating it
+26-11-16-11-18-40: Folder created successfully
+26-11-16-11-18-40: Moving kunert-site-icon-clean-512.png into images folder
+26-11-16-11-18-40: File kunert-site-icon-clean-512.png is moved to images folder successfully
+26-11-16-11-18-40: Folder others exist moving to next step
+26-11-16-11-18-40: Moving file into folder others
+26-11-17-09-34-17: Arguments are given proceeding next...
+26-11-17-09-34-17: messy_folder exist in current directory proceeding next...
+26-11-17-09-34-17: Checking the total no of files in folder
+26-11-17-09-34-17: no of files 7
+26-11-17-09-34-17: File:133859201093936930.jpg
+26-11-17-09-34-17: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-17-09-34-17: File:Roadmap_topic_map.pdf
+26-11-17-09-34-17: File:cybersecurity_roadmap_2026.html
+26-11-17-09-34-17: File:error.html
+26-11-17-09-34-17: File:image.png
+26-11-17-09-34-17: File:index.html
+26-11-17-09-34-17: Folder images exist, moving to next step
+26-11-17-09-34-17: Moving index.html into images folder
+26-11-17-09-34-17: File index.html is moved to images folder successfully
+26-11-17-09-34-17: Folder others exist moving to next step
+26-11-17-09-34-17: Moving file into folder others
+26-11-17-09-38-09: Arguments are given proceeding next...
+26-11-17-09-38-09: messy_folder exist in current directory proceeding next...
+26-11-17-09-38-09: Checking the total no of files in folder
+26-11-17-09-38-09: no of files 6
+26-11-17-09-38-09: File:133859201093936930.jpg
+26-11-17-09-38-09: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-17-09-38-09: File:Roadmap_topic_map.pdf
+26-11-17-09-38-09: File:cybersecurity_roadmap_2026.html
+26-11-17-09-38-09: File:error.html
+26-11-17-09-38-09: File:image.png
+26-11-17-09-38-09: Images folder not exisit, creating it
+26-11-17-09-38-09: Folder created successfully
+26-11-17-09-38-09: Moving image.png into images folder
+26-11-17-09-38-09: File image.png is moved to images folder successfully
+26-11-17-09-38-09: Folder others not exist, creating it
+26-11-17-09-38-09: Folder created successfully
+26-11-17-09-38-09: Moving file into folder others
+26-11-17-09-38-09: File image.png is moved to others folder successfully
+26-11-17-09-38-09: Folder documents not exist, creating it
+26-11-17-09-38-09: Folder created successfully
+26-11-17-09-38-09: Moving file into folder documents
+26-11-17-09-38-09: File image.png is moved to documents folder successfully
+26-11-17-09-38-09: Folder web not exist, creating it
+26-11-17-09-38-09: Folder created successfully
+26-11-17-09-38-09: Moving file into folder web
+26-11-17-09-38-09: File image.png is moved to web folder successfully
+26-11-17-09-38-09: Folder web exist moving to next step
+26-11-17-09-38-09: Moving file into folder web
+26-11-17-09-38-09: File image.png is moved to web folder successfully
+26-11-17-09-38-09: Folder images exist, moving to next step
+26-11-17-09-38-09: Moving image.png into images folder
+26-11-17-09-38-09: File image.png is moved to images folder successfully
+26-11-17-09-42-30: Arguments are given proceeding next...
+26-11-17-09-42-30: messy_folder exist in current directory proceeding next...
+26-11-17-09-42-30: Checking the total no of files in folder
+26-11-17-09-42-30: no of files 6
+26-11-17-09-42-30: File:133859201093936930.jpg
+26-11-17-09-42-30: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-17-09-42-30: File:Roadmap_topic_map.pdf
+26-11-17-09-42-30: File:cybersecurity_roadmap_2026.html
+26-11-17-09-42-30: File:error.html
+26-11-17-09-42-30: File:image.png
+26-11-17-09-43-59: Arguments are given proceeding next...
+26-11-17-09-43-59: messy_folder exist in current directory proceeding next...
+26-11-17-09-43-59: Checking the total no of files in folder
+26-11-17-09-43-59: no of files 6
+26-11-17-09-43-59: File:133859201093936930.jpg
+26-11-17-09-43-59: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-17-09-43-59: File:Roadmap_topic_map.pdf
+26-11-17-09-43-59: File:cybersecurity_roadmap_2026.html
+26-11-17-09-43-59: File:error.html
+26-11-17-09-43-59: File:image.png
+26-11-17-09-43-59: Images folder not exisit, creating it
+26-11-17-09-43-59: Folder created successfully
+26-11-17-09-43-59: Moving 133859201093936930.jpg into images folder
+26-11-17-09-43-59: File 133859201093936930.jpg is moved to images folder successfully
+26-11-17-09-43-59: Folder others not exist, creating it
+26-11-17-09-43-59: Folder created successfully
+26-11-17-09-43-59: Moving file into folder others
+26-11-17-09-43-59: File DevOps_Learning_Plan_Tracker.xlsx is moved to others folder successfully
+26-11-17-09-43-59: Folder documents not exist, creating it
+26-11-17-09-43-59: Folder created successfully
+26-11-17-09-43-59: Moving file into folder documents
+26-11-17-09-43-59: File Roadmap_topic_map.pdf is moved to documents folder successfully
+26-11-17-09-43-59: Folder web not exist, creating it
+26-11-17-09-43-59: Folder created successfully
+26-11-17-09-43-59: Moving file into folder web
+26-11-17-09-43-59: File cybersecurity_roadmap_2026.html is moved to web folder successfully
+26-11-17-09-43-59: Folder web exist moving to next step
+26-11-17-09-43-59: Moving file into folder web
+26-11-17-09-43-59: File error.html is moved to web folder successfully
+26-11-17-09-43-59: Folder images exist, moving to next step
+26-11-17-09-43-59: Moving image.png into images folder
+26-11-17-09-43-59: File image.png is moved to images folder successfully
+26-11-17-09-46-00: Arguments are given proceeding next...
+26-11-17-09-46-00: messy_folder exist in current directory proceeding next...
+26-11-17-09-46-00: Checking the total no of files in folder
+26-11-17-09-46-00: no of files 6
+26-11-17-09-46-00: File:133859201093936930.jpg
+26-11-17-09-46-00: File:DevOps_Learning_Plan_Tracker.xlsx
+26-11-17-09-46-00: File:Roadmap_topic_map.pdf
+26-11-17-09-46-00: File:cybersecurity_roadmap_2026.html
+26-11-17-09-46-00: File:error.html
+26-11-17-09-46-00: File:image.png
+26-11-17-09-46-00: Images folder not exisit, creating it
+26-11-17-09-46-00: Folder created successfully
+26-11-17-09-46-00: Moving 133859201093936930.jpg into images folder
+26-11-17-09-46-00: File 133859201093936930.jpg is moved to images folder successfully
+26-11-17-09-46-00: Folder documents not exist, creating it
+26-11-17-09-46-00: Folder created successfully
+26-11-17-09-46-00: Moving file into folder documents
+26-11-17-09-46-00: File DevOps_Learning_Plan_Tracker.xlsx is moved to documents folder successfully
+26-11-17-09-46-00: Folder documents exist moving to next step
+26-11-17-09-46-00: Moving file into folder documents
+26-11-17-09-46-00: File Roadmap_topic_map.pdf is moved to documents folder successfully
+26-11-17-09-46-00: Folder web not exist, creating it
+26-11-17-09-46-00: Folder created successfully
+26-11-17-09-46-00: Moving file into folder web
+26-11-17-09-46-00: File cybersecurity_roadmap_2026.html is moved to web folder successfully
+26-11-17-09-46-00: Folder web exist moving to next step
+26-11-17-09-46-00: Moving file into folder web
+26-11-17-09-46-00: File error.html is moved to web folder successfully
+26-11-17-09-46-00: Folder images exist, moving to next step
+26-11-17-09-46-00: Moving image.png into images folder
+26-11-17-09-46-00: File image.png is moved to images folder successfully

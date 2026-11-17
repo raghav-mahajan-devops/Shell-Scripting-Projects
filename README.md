@@ -5,10 +5,10 @@ A collection of small DevOps automation projects written in Bash. They target De
 | Project | Script | Purpose |
 |---|---|---|
 | Create EC2 instance | [automate-create-ec2/create-ec2.sh](automate-create-ec2/create-ec2.sh) | Installs the AWS CLI if needed and launches an EC2 instance |
-| Rotating backups | [backup-rotating-script/backup.sh](backup-rotating-script/backup.sh) | Zips a directory and keeps only the 5 newest backups |
+| Rotating backups | [backup-rotating-script/backup.sh](backup-rotating-script/backup.sh) | Archives a directory as `.tar.gz` and keeps only the 4 newest backups |
 | Deploy Django app | [deploy-django-app/deploy-app.sh](deploy-django-app/deploy-app.sh) | Clones a Django notes app and runs it in Docker |
 | System health monitor | [system-health-monitor/health_monitor.sh](system-health-monitor/health_monitor.sh) | Logs CPU, memory, disk and nginx status with warnings |
-| Nginx log analyzer | [nginx-log-analyzer/log_analyzer.sh](nginx-log-analyzer/log_analyzer.sh) | Summarizes an nginx access log: request count, top IPs/URLs, 4xx/5xx counts |
+| Nginx log analyzer | [nginx-log-analyzer/log_analyzer.sh](nginx-log-analyzer/log_analyzer.sh) | Summarizes an nginx access log: request count, top 5 IPs/URLs, 4xx/5xx counts |
 | Linux user management | [linux-user-management/manage_users.sh](linux-user-management/manage_users.sh) | Creates users and groups in bulk from a CSV file |
 
 ## 1. automate-create-ec2
@@ -32,21 +32,62 @@ Creates an EC2 instance and waits until it is `running`.
 
 ## 2. backup-rotating-script
 
-Archives a directory into `backup-<timestamp>.zip` and deletes older archives so that only the 5 newest remain. Only files matching `backup-*.zip` are ever deleted.
+Archives a directory into a compressed `backup_<timestamp>.tar.gz` file, then deletes older files so that only the **4 newest** remain in the backup directory. Every step is printed to the terminal and appended to `log/log.txt`.
+
+**What it does**
+1. Checks that the source directory and the backup directory both exist. It stops with an error if either is missing.
+2. Checks that `tar` is installed, and installs it with `apt` if it is not.
+3. Creates `<backup_dir>/backup_YY-MM-DD-HH-MM-SS.tar.gz` from the source directory (`tar -czvf`).
+4. Lists the backup directory newest first (`ls -t`) and deletes every file after the 4th one.
+
+The script runs with `set -euo pipefail`, so it stops at the first failing command. If `tar` fails, no old backups are deleted.
 
 **Usage**
 ```bash
+cd backup-rotating-script
 ./backup.sh <source_dir> <backup_dir>
-# example
-./backup.sh /var/log/myapp /backups/myapp
+# example, using the sample data in this folder
+./backup.sh data backup
 ```
 
-The backup directory is created if it does not exist. The script exits with an error if the source is missing, `zip` is not installed, or the backup fails. In that case old backups are left untouched.
+Run it from inside `backup-rotating-script/`. The script log path `./log/log.txt` is relative to the current directory, and the script stops if there is no `log/` folder there.
+
+**Example output** (trimmed)
+```text
+ 26-11-16-14-10-26 Checking data folder exist
+ 26-11-16-14-10-26 Data folder exist
+ 26-11-16-14-10-26 Checking backup folder exist
+ 26-11-16-14-10-26 backup folder exist
+ 26-11-16-14-10-26 checking tar is installed ...
+ 26-11-16-14-10-26 Tar is already installed
+data/
+data/file1.txt
+data/file2.txt
+ 26-11-16-14-10-26 Backup is successfull
+ 26-11-16-14-10-26 Deleting the old backups
+ 26-11-16-14-10-26 file to be removed backup_26-11-15-10-25-23.tar.gz
+ 26-11-16-14-10-26 old backup files are deleted successfully
+```
+
+**Change how many backups are kept:** edit `backup_to_keep=4` at the top of the script.
+
+**Restore a backup**
+```bash
+tar -xzvf backup/backup_26-11-15-10-26-37.tar.gz -C /path/to/restore
+```
 
 **Run on a schedule with cron** (daily at 02:00):
 ```cron
-0 2 * * * /path/to/backup.sh /var/log/myapp /backups/myapp >> /var/log/backup.log 2>&1
+0 2 * * * cd /path/to/backup-rotating-script && ./backup.sh /var/log/myapp /backups/myapp >/dev/null 2>&1
 ```
+The `cd` is needed because of the relative `log/` path. Terminal output can be discarded because the script already writes its own log.
+
+**Known limitations**
+- Rotation deletes **any** file in the backup directory, not only `backup_*.tar.gz`. Use a directory that holds nothing but these backups.
+- The backup directory is not created automatically. Create it first with `mkdir -p`.
+- Running without arguments fails with `$1: unbound variable` instead of printing the usage message. `set -u` stops the script before the argument check is reached.
+- If `tar` has to be installed, the archive is not created in that run. Run the script again.
+- The script prints two debug numbers before deleting: the total number of files and how many will be removed.
 
 ## 3. deploy-django-app
 
@@ -105,23 +146,76 @@ The `cd` matters because the log file is written to the current directory.
 
 ## 5. nginx-log-analyzer
 
-Reads an nginx access log and prints a summary report to the terminal.
+Reads an nginx access log and prints a summary report to the terminal. The results and each step of the script are also appended, with a timestamp, to `log/log.txt`.
 
 **What it reports**
-- Total number of requests
-- Top 10 client IPs
-- Top 10 requested URLs
+- Total number of requests (one log line = one request)
+- Top 5 client IPs, most frequent first
+- Top 5 requested URLs, most frequent first
 - Number of 4xx (client error) responses
 - Number of 5xx (server error) responses
 
+**How it works**
+1. Checks that exactly one argument is given and that the file exists.
+2. Counts lines with `wc -l`.
+3. Finds the top IPs/URLs with `awk '{print $1}' | sort | uniq -c | sort -nr`, keeping the first 5.
+4. Counts errors with `awk '$9 >= 400 && $9 < 500'` (4xx) and `awk '$9 >= 500 && $9 < 600'` (5xx).
+
+It assumes the standard nginx combined log format: column 1 is the client IP, column 7 is the requested URL, and column 9 is the HTTP status code.
+
 **Usage**
 ```bash
+cd nginx-log-analyzer
 ./log_analyzer.sh <path_to_nginx_log>
-# example
-./log_analyzer.sh /var/log/nginx/access.log
+# example, using the sample log in this folder (500 requests)
+./log_analyzer.sh nginx.log
+# a real server log (usually needs sudo to read)
+sudo ./log_analyzer.sh /var/log/nginx/access.log
 ```
 
-The script exits with an error if no log file path is given. It assumes the standard nginx combined log format, where column 1 is the client IP, column 7 is the requested URL, and column 9 is the HTTP status code.
+Run it from inside `nginx-log-analyzer/`. The script log path `./log/log.txt` is relative to the current directory, and the script stops if there is no `log/` folder there.
+
+**Example output** (from the sample `nginx.log`)
+```text
+Total no of request: 500
+
+Most Frequent Ips
+
+Ip : 192.168.1.10
+Ip : 10.0.0.5
+Ip : 203.0.113.45
+Ip : 198.51.100.23
+Ip : 192.168.1.25
+
+Most Famous Urls
+
+Url: /
+Url: /login
+Url: /api/users
+Url: /static/css/style.css
+Url: /dashboard
+
+Total 400 erros : 81
+
+Total 500 erros : 16
+```
+
+**Example `log/log.txt` entries**
+```text
+26-11-16-14-10-24 : Checking the location of log file is given
+26-11-16-14-10-24 : File Exist
+26-11-16-14-10-24 : All requirements meet starting the script
+26-11-16-14-10-24 : Ip : 192.168.1.10
+26-11-16-14-10-24 : Url: /
+26-11-16-14-10-24 : Total 400 erros : 81
+26-11-16-14-10-24 : Total 500 erros : 16
+```
+
+**Known limitations**
+- Running without arguments fails with `$1: unbound variable` instead of printing the usage message. `set -u` stops the script before the argument check is reached.
+- If the log file does not exist, the script exits with code 1 but prints nothing to the terminal. The reason is only written to `log/log.txt`.
+- The top IPs and URLs are listed without their request counts.
+- The total request count is the line count, so blank lines would be counted as requests.
 
 ## 6. linux-user-management
 
@@ -156,31 +250,33 @@ Every command and flag used across the scripts. The **Used in** column shows the
 
 | Command | Flags / usage | Meaning | Used in |
 |---|---|---|---|
-| `cat` | `cat file` | Print a file's content | nginx, users, health |
+| `cat` | `cat file` | Print a file's content | users, health |
 | `wc` | `-l` | Count lines | nginx, users |
 | `awk` | `'{print $1}'` | Print a column (`$1` = first, `$NF` = last) | nginx, users, health |
 | `awk` | `-F,` | Use a comma as the field separator (CSV) | users |
 | `awk` | `-v line=$i` | Pass a shell variable into awk | users |
-| `awk` | `NR==2`, `NR<=10` | Select lines by line number | nginx, users, health |
+| `awk` | `NR==2`, `NR<=5` | Select lines by line number | nginx, users, health |
 | `awk` | `END {print NR}` | Print the total line count after reading everything | nginx |
 | `awk` | `'$9 >= 400 && $9 < 500'` | Keep lines where column 9 is in a range | nginx |
-| `sort` | `-r` / `-nr` | Sort in reverse / numerically in reverse | nginx |
+| `sort` | `sort` / `-nr` | Sort alphabetically / numerically in reverse | nginx |
 | `uniq` | `-c` | Collapse duplicate lines and prefix each with its count | nginx |
+| `head` | `-n 5` | Keep only the first 5 lines | nginx |
+| `tee` | `-a file` | Print to the terminal and append to a file at the same time | backup |
 | `sed` | `'s/%//'` | Substitute: remove the `%` character | health |
 | `grep` | `-q` `-x` | Quiet (no output, only exit code); match the whole line only | deploy |
 | `ls` | `-t` | List files newest first | backup |
 | `ls` | `-l` | Long listing (permissions, size, date) | deploy |
-| `mkdir` | `-p` | Create the directory and any parents, no error if it exists | backup |
 | `rm` | `-f` | Force, ignore missing files | backup |
 | `rm` | `-rf` | Remove recursively and forcefully | ec2 |
 | `rm` | `--` | End of options, so filenames starting with `-` are safe | backup |
-| `date` | `+%Y-%m-%d_%H-%M-%S` | Print the date/time in a custom format | backup, health |
+| `date` | `+%y-%m-%d-%H-%M-%S` | Print the date/time in a custom format (`%y` = 2-digit year) | backup, nginx, health |
 
 ### Archives and downloads
 
 | Command | Flags / usage | Meaning | Used in |
 |---|---|---|---|
-| `zip` | `-r` | Zip a directory recursively | backup |
+| `tar` | `-czvf file.tar.gz dir` | Create (`c`) a gzip-compressed (`z`) archive of `dir`, listing each file (`v`), written to `file.tar.gz` (`f`) | backup |
+| `tar` | `-xzvf file.tar.gz -C dir` | Extract (`x`) an archive into `dir` | backup (restore) |
 | `unzip` | `-q` | Quiet, no file listing | ec2 |
 | `unzip` | `-o` | Overwrite existing files without asking | ec2 |
 | `curl` | `-f` | Fail on HTTP errors instead of saving the error page | ec2 |
@@ -193,9 +289,10 @@ Every command and flag used across the scripts. The **Used in** column shows the
 
 | Command | Flags / usage | Meaning | Used in |
 |---|---|---|---|
-| `sudo` | `sudo cmd` | Run a command as root | ec2, deploy, health, users |
+| `sudo` | `sudo cmd` | Run a command as root | ec2, backup, deploy, health, users |
 | `apt-get` | `update` | Refresh the package list | deploy, health |
 | `apt-get` | `install -y pkg` | Install a package, answering yes automatically | ec2, deploy, health |
+| `apt` | `update`, `install pkg -y` | Same as `apt-get`, newer front end | backup |
 | `dpkg` | `-s pkg` | Show package status; fails if not installed | deploy |
 | `systemctl` | `enable --now svc` | Start a service now and on every boot | deploy |
 | `systemctl` | `is-active svc` | Print `active`, `inactive`, etc. | health |
@@ -252,26 +349,34 @@ Every command and flag used across the scripts. The **Used in** column shows the
 |---|---|---|
 | `command -v cmd` | Check whether a command exists (prints its path) | ec2, backup |
 | `echo -e` | Print and interpret escape sequences such as `\n` | ec2, deploy, nginx, users |
-| `mapfile -t arr` | Read lines into an array, dropping the trailing newline | backup |
-| `local var` | Variable that exists only inside the function | ec2, deploy, backup |
+| `set -euo pipefail` | Stop on any error (`-e`), on unset variables (`-u`), and on a failure anywhere in a pipe (`pipefail`) | backup, nginx |
+| `[[ ... ]]` | Bash test, safer than `[ ]` with empty or spaced values | backup, nginx |
+| `mapfile -t arr` | Read lines into an array, dropping the trailing newline | backup, nginx |
+| `< <(cmd)` | Process substitution: feed a command's output to another command as if it were a file | backup, nginx |
+| `local var` | Variable that exists only inside the function | ec2, deploy |
 | `sleep 5` | Wait 5 seconds | ec2 |
 | `cd dir` | Change directory | deploy |
 | `case ... esac` | Match a value against several patterns | ec2 |
-| `>>` | Append output to a file | health, users |
-| `2>&1`, `>/dev/null` | Redirect errors to the same place as output; discard output | ec2, backup, deploy |
+| `>>` | Append output to a file | nginx, health, users |
+| `2>&1`, `>/dev/null` | Redirect errors to the same place as output; discard output | ec2, deploy |
 | `$( ... )` | Command substitution: use a command's output as a value | ec2, backup, nginx, health, users |
-| `${arr[@]:5}` | Array slice from index 5 onward | backup |
+| `${arr[@]:4}` | Array slice from index 4 onward (the files to delete) | backup |
+| `${#arr[@]}` | Number of elements in an array | backup |
 
-**Special variables:** `$1`, `$2`... (arguments), `$@` (all arguments), `$#` (argument count), `$0` (script name), `$?` (exit code of the last command), `$USER` (current user).
+**Special variables:** `$1`, `$2`... (arguments), `$@` / `$*` (all arguments), `$#` (argument count), `$0` (script name), `$?` (exit code of the last command), `$USER` (current user).
 
-**Test operators** (inside `[ ]`):
+**Test operators** (inside `[ ]` or `[[ ]]`):
 
 | Operator | Meaning | Used in |
 |---|---|---|
-| `-z str` | String is empty | ec2, nginx, health, users |
+| `-z str` | String is empty | ec2, health, users |
+| `-n str` | String is not empty | backup |
 | `-d path` | Path is a directory | backup, deploy |
-| `-eq`, `-ne` | Numbers equal / not equal | ec2, backup, users |
-| `-ge`, `-lt` | Greater or equal / less than | ec2, backup, health |
+| `-f path` | Path is a regular file | nginx |
+| `-e path` | Path exists | backup |
+| `! test` | Negate a test, e.g. `[[ ! -d dir ]]` | backup |
+| `-eq`, `-ne` | Numbers equal / not equal | ec2, backup, nginx, users |
+| `-ge`, `-lt` | Greater or equal / less than | ec2, health |
 | `=`, `==` | String equals | ec2, health |
 
 ## Getting started

@@ -1,0 +1,318 @@
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Interactive cybersecurity career roadmap from beginner to senior, with four specialization tracks and clickable details for each phase.</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.phase{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.1rem 1.25rem;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+.phase:hover{border-color:var(--color-border-primary)}
+.phase.open{border-color:var(--color-border-info);border-width:2px}
+.ph-header{display:flex;align-items:center;gap:12px}
+.ph-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0}
+.ph-meta{flex:1}
+.ph-title{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.ph-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.ph-badges{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.b-time{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.b-sal{background:#EAF3DE;color:#27500A}
+.ph-body{margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--color-border-tertiary);display:none}
+.phase.open .ph-body{display:block}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.col-label{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.skill-pill{display:inline-block;font-size:12px;padding:3px 9px;border-radius:20px;background:var(--color-background-secondary);color:var(--color-text-secondary);margin:2px 3px 2px 0}
+.cert-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px}
+.cert-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.cert-name{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.cert-note{font-size:12px;color:var(--color-text-secondary)}
+.insight-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;margin-top:10px;font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.track-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:1rem}
+.track-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.9rem 1rem;cursor:pointer}
+.track-card:hover{border-color:var(--color-border-primary)}
+.track-card.sel{border-width:2px}
+.tc-icon{font-size:18px;margin-bottom:6px}
+.tc-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.tc-sal{font-size:11px;color:var(--color-text-secondary)}
+.track-detail{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
+.td-title{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:.5rem}
+.td-items{font-size:13px;color:var(--color-text-secondary);line-height:1.7}
+.progress-bar{height:4px;background:var(--color-background-secondary);border-radius:2px;margin-top:8px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px}
+.sec-label{font-size:11px;font-weight:500;color:var(--color-text-secondary);letter-spacing:.05em;text-transform:uppercase;margin:1.25rem 0 .6rem}
+.ask-btn{font-size:12px;color:var(--color-text-info);border:0.5px solid var(--color-border-info);padding:4px 10px;border-radius:20px;cursor:pointer;background:none;margin-top:10px}
+.ask-btn:hover{background:var(--color-background-info)}
+</style>
+
+<div style="padding:1rem 0 .5rem">
+  <div style="font-size:18px;font-weight:500;color:var(--color-text-primary)">Cybersecurity career roadmap 2026</div>
+  <div style="font-size:13px;color:var(--color-text-secondary);margin-top:3px">Click each phase to expand — then pick a specialization track</div>
+</div>
+
+<div class="sec-label">Phase 1 — Foundation</div>
+
+<div class="phase open" onclick="toggle(this)">
+  <div class="ph-header">
+    <div class="ph-num" style="background:#E6F1FB;color:#185FA5">1</div>
+    <div class="ph-meta">
+      <div class="ph-title">Build the base</div>
+      <div class="ph-sub">Networking · OS · Security fundamentals</div>
+    </div>
+    <div class="ph-badges">
+      <span class="badge b-time"><i class="ti ti-clock" aria-hidden="true" style="font-size:11px"></i> 0–3 months</span>
+      <span class="badge b-sal">$0 cost start</span>
+    </div>
+  </div>
+  <div class="ph-body">
+    <div class="two-col">
+      <div>
+        <div class="col-label">Skills to learn</div>
+        <span class="skill-pill">TCP/IP networking</span>
+        <span class="skill-pill">Linux basics</span>
+        <span class="skill-pill">Windows security</span>
+        <span class="skill-pill">How firewalls work</span>
+        <span class="skill-pill">CIA triad</span>
+        <span class="skill-pill">Basic cryptography</span>
+        <span class="skill-pill">Python scripting</span>
+      </div>
+      <div>
+        <div class="col-label">Certifications</div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#185FA5"></div>
+          <div><div class="cert-name">ISC2 CC (Certified in Cybersecurity)</div><div class="cert-note">Free exam + free course — best first cert in 2026</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#185FA5"></div>
+          <div><div class="cert-name">CompTIA Security+</div><div class="cert-note">~$404 · HR keyword filter for most jobs</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-label">Free resources</div>
+    <span class="skill-pill">TryHackMe — Pre-security path</span>
+    <span class="skill-pill">Professor Messer Security+ (YouTube)</span>
+    <span class="skill-pill">Cybrary free courses</span>
+    <div class="insight-box"><i class="ti ti-info-circle" aria-hidden="true" style="font-size:14px;margin-right:6px"></i>Since you already do web dev + APIs, you can skip basic networking theory and jump straight to Security+. Your dev background counts for 40% of this phase already.</div>
+    <button class="ask-btn" onclick="sendPrompt('What is the fastest way to get Security+ if I already know web development and APIs? ↗')">Ask: fastest path from dev background ↗</button>
+  </div>
+</div>
+
+<div class="sec-label">Phase 2 — Get hired (entry level)</div>
+
+<div class="phase" onclick="toggle(this)">
+  <div class="ph-header">
+    <div class="ph-num" style="background:#E1F5EE;color:#085041">2</div>
+    <div class="ph-meta">
+      <div class="ph-title">First security role</div>
+      <div class="ph-sub">SOC analyst · Junior AppSec · Security support</div>
+    </div>
+    <div class="ph-badges">
+      <span class="badge b-time">3–12 months</span>
+      <span class="badge b-sal">$65–95K</span>
+    </div>
+  </div>
+  <div class="ph-body">
+    <div class="two-col">
+      <div>
+        <div class="col-label">Skills to build</div>
+        <span class="skill-pill">SIEM tools (Splunk, QRadar)</span>
+        <span class="skill-pill">Log analysis</span>
+        <span class="skill-pill">Vulnerability scanning</span>
+        <span class="skill-pill">OWASP Top 10</span>
+        <span class="skill-pill">Burp Suite basics</span>
+        <span class="skill-pill">Incident triage</span>
+        <span class="skill-pill">Git + scripting</span>
+      </div>
+      <div>
+        <div class="col-label">Certs that open doors</div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#0F6E56"></div>
+          <div><div class="cert-name">CompTIA CySA+</div><div class="cert-note">Blue team / analyst track · ~$404</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#0F6E56"></div>
+          <div><div class="cert-name">eJPT (eLearnSecurity)</div><div class="cert-note">Beginner pen testing · ~$200 · very hands-on</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#0F6E56"></div>
+          <div><div class="cert-name">AWS Cloud Practitioner</div><div class="cert-note">~$100 — foundation for cloud sec track</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-label">Portfolio builders</div>
+    <span class="skill-pill">TryHackMe SOC Level 1 path</span>
+    <span class="skill-pill">PortSwigger Web Security Academy (free)</span>
+    <span class="skill-pill">HackTheBox Starting Point</span>
+    <span class="skill-pill">Home lab: Kali + vulnerable VMs</span>
+    <div class="insight-box"><i class="ti ti-info-circle" aria-hidden="true" style="font-size:14px;margin-right:6px"></i>For developers: skip straight to PortSwigger Web Security Academy and apply for AppSec/DevSecOps junior roles. You'll get there faster than going through SOC tier-1 work.</div>
+    <button class="ask-btn" onclick="sendPrompt('What AppSec junior roles should a web developer apply for when transitioning into cybersecurity? ↗')">Ask: best entry roles for developers ↗</button>
+  </div>
+</div>
+
+<div class="sec-label">Phase 3 — Specialize (mid level)</div>
+
+<div class="phase" onclick="toggle(this)">
+  <div class="ph-header">
+    <div class="ph-num" style="background:#EEEDFE;color:#3C3489">3</div>
+    <div class="ph-meta">
+      <div class="ph-title">Pick your track</div>
+      <div class="ph-sub">AppSec · Cloud sec · Pen test · Incident response</div>
+    </div>
+    <div class="ph-badges">
+      <span class="badge b-time">Year 1–3</span>
+      <span class="badge b-sal">$107–140K</span>
+    </div>
+  </div>
+  <div class="ph-body">
+    <div class="col-label" style="margin-bottom:.75rem">Choose your specialization</div>
+    <div class="track-grid">
+      <div class="track-card sel" id="t-appsec" onclick="selTrack('appsec',this)" style="border-color:#185FA5;border-width:2px">
+        <div class="tc-icon"><i class="ti ti-code" aria-hidden="true" style="color:#185FA5"></i></div>
+        <div class="tc-title">AppSec / DevSecOps</div>
+        <div class="tc-sal">$110–160K · Best for devs</div>
+      </div>
+      <div class="track-card" id="t-cloud" onclick="selTrack('cloud',this)">
+        <div class="tc-icon"><i class="ti ti-cloud" aria-hidden="true" style="color:#0F6E56"></i></div>
+        <div class="tc-title">Cloud security</div>
+        <div class="tc-sal">$120–170K · Fastest growing</div>
+      </div>
+      <div class="track-card" id="t-pentest" onclick="selTrack('pentest',this)">
+        <div class="tc-icon"><i class="ti ti-bug" aria-hidden="true" style="color:#712B13"></i></div>
+        <div class="tc-title">Pen testing</div>
+        <div class="tc-sal">$93–145K · High demand</div>
+      </div>
+      <div class="track-card" id="t-ir" onclick="selTrack('ir',this)">
+        <div class="tc-icon"><i class="ti ti-alert-triangle" aria-hidden="true" style="color:#633806"></i></div>
+        <div class="tc-title">Incident response</div>
+        <div class="tc-sal">$107–135K · Very stable</div>
+      </div>
+    </div>
+    <div class="track-detail" id="track-detail"></div>
+  </div>
+</div>
+
+<div class="sec-label">Phase 4 — Senior level</div>
+
+<div class="phase" onclick="toggle(this)">
+  <div class="ph-header">
+    <div class="ph-num" style="background:#FAECE7;color:#712B13">4</div>
+    <div class="ph-meta">
+      <div class="ph-title">Senior engineer / architect</div>
+      <div class="ph-sub">Security architect · Lead engineer · CISO track</div>
+    </div>
+    <div class="ph-badges">
+      <span class="badge b-time">Year 3–8+</span>
+      <span class="badge b-sal">$150–256K+</span>
+    </div>
+  </div>
+  <div class="ph-body">
+    <div class="two-col">
+      <div>
+        <div class="col-label">Senior skills</div>
+        <span class="skill-pill">Zero Trust architecture</span>
+        <span class="skill-pill">Threat modeling</span>
+        <span class="skill-pill">Security program design</span>
+        <span class="skill-pill">Risk management</span>
+        <span class="skill-pill">Team leadership</span>
+        <span class="skill-pill">Executive communication</span>
+        <span class="skill-pill">Vendor management</span>
+        <span class="skill-pill">AI security</span>
+      </div>
+      <div>
+        <div class="col-label">Senior certs</div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#712B13"></div>
+          <div><div class="cert-name">CISSP</div><div class="cert-note">The single most recognized senior cert · ~$749 · Needs 5yr exp · +$55K salary jump</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#712B13"></div>
+          <div><div class="cert-name">CISM</div><div class="cert-note">Management track · $575 · Opens CISO path</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot" style="background:#712B13"></div>
+          <div><div class="cert-name">CCSP (cloud) or OSCP (offensive)</div><div class="cert-note">Pick based on your track</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="insight-box"><i class="ti ti-trophy" aria-hidden="true" style="font-size:14px;margin-right:6px"></i>CISSP is the biggest single salary jump in cybersecurity — mid-level analyst at $85K → senior engineer/architect with CISSP at $140K+ is a $55K increase. The 5-year experience requirement is real, plan for it.</div>
+    <button class="ask-btn" onclick="sendPrompt('What is the CISO career path in cybersecurity and what does it pay? ↗')">Ask: CISO career path and salary ↗</button>
+  </div>
+</div>
+
+<div class="sec-label" style="margin-top:1.5rem">Timeline overview</div>
+<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem">
+  <div style="display:grid;grid-template-columns:80px 1fr;gap:8px 16px;align-items:center;font-size:13px">
+    <div style="color:var(--color-text-secondary)">Month 1–3</div>
+    <div><div class="progress-bar" style="max-width:100%"><div class="progress-fill" style="width:12%;background:#85B7EB"></div></div><div style="color:var(--color-text-secondary);font-size:12px;margin-top:3px">ISC2 CC (free) + Security+ study</div></div>
+    <div style="color:var(--color-text-secondary)">Month 3–6</div>
+    <div><div class="progress-bar"><div class="progress-fill" style="width:25%;background:#5DCAA5"></div></div><div style="color:var(--color-text-secondary);font-size:12px;margin-top:3px">Hands-on labs · PortSwigger / TryHackMe · first job applications</div></div>
+    <div style="color:var(--color-text-secondary)">Month 6–12</div>
+    <div><div class="progress-bar"><div class="progress-fill" style="width:45%;background:#7F77DD"></div></div><div style="color:var(--color-text-secondary);font-size:12px;margin-top:3px">First security role · specialization cert (CySA+ or AZ-500)</div></div>
+    <div style="color:var(--color-text-secondary)">Year 1–3</div>
+    <div><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#D85A30"></div></div><div style="color:var(--color-text-secondary);font-size:12px;margin-top:3px">Mid-level · track specialization · $107–140K</div></div>
+    <div style="color:var(--color-text-secondary)">Year 3–8</div>
+    <div><div class="progress-bar"><div class="progress-fill" style="width:100%;background:#E24B4A"></div></div><div style="color:var(--color-text-secondary);font-size:12px;margin-top:3px">Senior engineer / architect · CISSP · $150–256K</div></div>
+  </div>
+</div>
+
+<script>
+const tracks = {
+  appsec:{
+    title:'Application security / DevSecOps',
+    color:'#185FA5', bg:'#E6F1FB',
+    body:`<b>Best track for web developers</b> — you already know how the app is built, now you learn how it gets broken.<br><br>
+<b>Key skills:</b> OWASP Top 10, Burp Suite, SAST/DAST tools, secure code review, CI/CD pipeline security, API security, dependency scanning.<br><br>
+<b>Cert path:</b> Security+ → PortSwigger Web Sec Academy → OSWE (Web Expert) or GWEB → CISSP<br><br>
+<b>Tools to learn:</b> Burp Suite Pro, Semgrep, Snyk, Checkmarx, OWASP ZAP, GitHub Advanced Security<br><br>
+<b>Job titles:</b> AppSec Engineer, Product Security Engineer, DevSecOps Engineer, Security Engineer (SWE background)<br><br>
+<b>Salary 2026:</b> Entry $85K → Mid $110–140K → Senior $150–180K`
+  },
+  cloud:{
+    title:'Cloud security engineering',
+    color:'#0F6E56', bg:'#E1F5EE',
+    body:`<b>Fastest growing specialization in 2026</b> — cloud + IoT security roles are the hardest to fill globally.<br><br>
+<b>Key skills:</b> AWS/Azure/GCP security configs, IAM policies, Zero Trust, container security (Docker/K8s), cloud SIEM, CSPM tools.<br><br>
+<b>Cert path:</b> Security+ → AWS Security Specialty (SCS-C03) or AZ-500 → CCSP → CISSP<br><br>
+<b>Tools to learn:</b> AWS GuardDuty, Microsoft Defender for Cloud, Prisma Cloud, Wiz, Orca Security<br><br>
+<b>Job titles:</b> Cloud Security Engineer, Cloud Security Architect, DevSecOps Engineer<br><br>
+<b>Salary 2026:</b> Entry $90K → Mid $120–150K → Senior $160–200K`
+  },
+  pentest:{
+    title:'Penetration testing / ethical hacking',
+    color:'#712B13', bg:'#FAECE7',
+    body:`<b>Exciting but competitive</b> — requires strong networking, scripting, and creative adversarial thinking.<br><br>
+<b>Key skills:</b> Network scanning, exploitation frameworks (Metasploit), web app attacks, AD attacks, report writing, social engineering.<br><br>
+<b>Cert path:</b> Security+ → eJPT → CEH v13 → OSCP (gold standard) → CRTO (Active Directory)<br><br>
+<b>Tools to learn:</b> Kali Linux, Metasploit, Nmap, Burp Suite, BloodHound, Cobalt Strike<br><br>
+<b>Job titles:</b> Junior Pen Tester, Penetration Tester, Red Team Operator, Security Consultant<br><br>
+<b>Salary 2026:</b> Entry $75K → Mid $93–136K · 12K openings, 29% growth`
+  },
+  ir:{
+    title:'Incident response / digital forensics',
+    color:'#633806', bg:'#FAEEDA',
+    body:`<b>Most in-demand hire of 2026</b> — when a breach happens companies pay top dollar for responders fast.<br><br>
+<b>Key skills:</b> Log analysis, memory forensics, malware analysis, timeline reconstruction, SIEM correlation, threat hunting, playbook writing.<br><br>
+<b>Cert path:</b> Security+ → CySA+ → GCIH (GIAC Incident Handler) → GCFE (forensics) → CISSP<br><br>
+<b>Tools to learn:</b> Splunk, Elastic SIEM, Volatility, Autopsy, Wireshark, TheHive, MITRE ATT&CK framework<br><br>
+<b>Job titles:</b> SOC Analyst L2/L3, Incident Responder, Threat Hunter, DFIR Analyst<br><br>
+<b>Salary 2026:</b> Mid $107–130K · 10K openings, 25–30% growth`
+  }
+};
+
+function toggle(el){
+  el.classList.toggle('open');
+}
+
+function selTrack(id, el){
+  event.stopPropagation();
+  document.querySelectorAll('.track-card').forEach(c=>{
+    c.classList.remove('sel');
+    c.style.borderColor='';
+    c.style.borderWidth='';
+  });
+  el.classList.add('sel');
+  const t = tracks[id];
+  el.style.borderColor = t.color;
+  el.style.borderWidth = '2px';
+  const det = document.getElementById('track-detail');
+  det.innerHTML = `<div class="td-title" style="color:${t.color}">${t.title}</div><div class="td-items">${t.body}</div><button class="ask-btn" onclick="sendPrompt('Give me a detailed study plan for the ${t.title} track in cybersecurity ↗')" style="margin-top:10px">Get detailed study plan ↗</button>`;
+}
+
+selTrack('appsec', document.getElementById('t-appsec'));
+</script>
