@@ -2,6 +2,8 @@
 
 A collection of small DevOps automation projects written in Bash. They target Debian/Ubuntu Linux (they use `apt-get` and `systemctl`).
 
+📒 **[NOTES.md](NOTES.md)** explains every command and pattern used in these scripts, with examples, gotchas and interview Q&A. Read it to revise Bash.
+
 | Project | Script | Purpose |
 |---|---|---|
 | Create EC2 instance | [automate-create-ec2/create-ec2.sh](automate-create-ec2/create-ec2.sh) | Installs the AWS CLI if needed and launches an EC2 instance |
@@ -11,6 +13,7 @@ A collection of small DevOps automation projects written in Bash. They target De
 | Nginx log analyzer | [nginx-log-analyzer/log_analyzer.sh](nginx-log-analyzer/log_analyzer.sh) | Summarizes an nginx access log: request count, top 5 IPs/URLs, 4xx/5xx counts |
 | Linux user management | [linux-user-management/manage_users.sh](linux-user-management/manage_users.sh) | Creates users and groups in bulk from a CSV file |
 | File organizer | [file_organizer/file_organizer.sh](file_organizer/file_organizer.sh) | Moves files into `images/`, `web/`, `documents/` and `others/` by their real file type |
+| System information *(work in progress)* | [system_information/sysInfo.sh](system_information/sysInfo.sh) | Prints a report of OS, CPU, memory, disk and network details |
 
 ## 1. automate-create-ec2
 
@@ -142,8 +145,6 @@ The `cd` matters because the log file is written to the current directory.
 **Known limitations**
 - The description in the script mentions network checks and alerts to an administrator. Neither is implemented yet; warnings only go to the log file.
 - Only `inactive` nginx is flagged. States such as `failed` are logged as `[INFO]`.
-- The first line of the script has the shebang and the comment block joined on one line, so the `<<COMMENT` block does not work as intended.
-
 ## 5. nginx-log-analyzer
 
 Reads an nginx access log and prints a summary report to the terminal. The results and each step of the script are also appended, with a timestamp, to `log/log.txt`.
@@ -307,155 +308,87 @@ fileType: PDF
 - Running without arguments fails with `$1: unbound variable` instead of printing the usage message. `set -u` stops the script before the argument check is reached.
 - Skipped files stay in the source folder. Rename them and run the script again to move them.
 
+## 8. system_information *(work in progress)*
+
+Prints a one-page report about the machine: OS, CPU, memory, disks and network interfaces. It only reads information and changes nothing.
+
+**What it reports**
+
+| Section | Values | Commands used |
+|---|---|---|
+| System | Hostname, OS name, kernel version, uptime | `hostname`, `. /etc/os-release`, `uname -r`, `uptime -p` |
+| CPU | Model name, number of cores, load average | `lscpu`, `nproc`, `uptime` |
+| Memory | Total, used, available, swap total and used | `free -h` |
+| Disk | Size, used, free and use % of every filesystem | `df -h` |
+| Network | Interface name, IP, MAC address, RX and TX packet counts | `ifconfig` |
+
+Each value is printed as an aligned row with `printf "%-10s : %s\n"`.
+
+**Usage**
+```bash
+cd system_information
+./sysInfo.sh
+```
+
+**Requirements:** Linux. The network table uses `ifconfig`, which comes from the `net-tools` package (`sudo apt-get install -y net-tools`).
+
+**Example output** (from Ubuntu 24.04 on WSL, trimmed)
+```text
+==================================================
+     SYSTEM INFORMATION REPORT
+     26-11-20 09:56:05
+==================================================
+
+Hostname   : <your hostname>
+OS         : Ubuntu 24.04.5 LTS
+Kernel     : 6.18.58.1-microsoft-standard-WSL2
+Uptime     : up 1 day, 14 hours, 51 minutes
+
+CPU
+--------------------------------------------------
+Model Name : Intel(R) Core(TM) i5-1240P
+cores      : 16
+Cpu Usage  :
+load average : 0.21, 0.33, 0.20
+
+MEMORY
+--------------------------------------------------
+Total      : 7.6Gi
+Used       : 1.6Gi
+Available  : 6.0Gi
+Usage      :  Pending to implment
+Swap Total : 2.0Gi
+Swap Used  : 0B
+
+MEMORY
+--------------------------------------------------
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G  7.2G  949G   1% /
+...
+Interface  Ip address          Mac Address         RX         TX
+,docker0:   172.17.0.1         86:16:b5:37:90:06    0          0
+eth0:      192.168.203.139    00:15:5d:af:84:ed    648683     77927
+lo:        127.0.0.1          00:15:5d:af:84:ed    657755     657755
+```
+
+**Known issues** (seen in the output above)
+- **CPU usage** is empty and **memory usage %** is not implemented yet.
+- The disk section is titled `MEMORY` instead of `DISK`.
+- The network header prints a stray `,` before the first interface. The `printf` line has a comma after the format string.
+- `lo` shows the MAC address of `eth0`. The awk variable `mac` is not reset for each interface, and `lo` has no MAC of its own.
+- **Model name** is cut short. The awk command prints only columns 5–7, so `12th Gen Intel(R) Core(TM) i5-1240P` becomes `Intel(R) Core(TM) i5-1240P`. Other CPU names will be cut differently.
+- **Load average** reads columns 10–12 of `uptime`. Those positions move when uptime is less than one day, and then only one value is printed. `awk -F'load average: ' '{print $2}'` always works.
+- Interface names keep the trailing `:` (for example `eth0:`).
+- A `log()` function is defined but not used yet. The `log/` folder is empty, and git does not track empty folders. Add a `log/.gitkeep` file before you start using `log()`, or a fresh clone will not have the folder.
+
 ## Command reference
 
-Every command and flag used across the scripts. The **Used in** column shows the script: `ec2` = create-ec2.sh, `backup` = backup.sh, `deploy` = deploy-app.sh, `health` = health_monitor.sh, `nginx` = log_analyzer.sh, `users` = manage_users.sh, `organizer` = file_organizer.sh.
+Every command, flag and Bash pattern used in these scripts is explained in **[NOTES.md](NOTES.md)**. It covers:
 
-### Files and text processing
-
-| Command | Flags / usage | Meaning | Used in |
-|---|---|---|---|
-| `cat` | `cat file` | Print a file's content | users, health |
-| `wc` | `-l` | Count lines | nginx, users |
-| `awk` | `'{print $1}'` | Print a column (`$1` = first, `$NF` = last) | nginx, users, health, organizer |
-| `awk` | `-F,` | Use a comma as the field separator (CSV) | users |
-| `awk` | `-v line=$i` | Pass a shell variable into awk | users |
-| `awk` | `NR==2`, `NR<=5` | Select lines by line number | nginx, users, health |
-| `awk` | `END {print NR}` | Print the total line count after reading everything | nginx |
-| `awk` | `'$9 >= 400 && $9 < 500'` | Keep lines where column 9 is in a range | nginx |
-| `sort` | `sort` / `-nr` | Sort alphabetically / numerically in reverse | nginx |
-| `uniq` | `-c` | Collapse duplicate lines and prefix each with its count | nginx |
-| `head` | `-n 5` | Keep only the first 5 lines | nginx |
-| `tee` | `-a file` | Print to the terminal and append to a file at the same time | backup, organizer |
-| `file` | `-b path` | Detect a file's real type from its content, e.g. `PNG image data`; `-b` (brief) leaves out the file name | organizer |
-| `sed` | `'s/%//'` | Substitute: remove the `%` character | health |
-| `grep` | `-q` `-x` | Quiet (no output, only exit code); match the whole line only | deploy |
-| `ls` | `ls dir` | List the files in a folder | organizer |
-| `ls` | `-t` | List files newest first | backup |
-| `ls` | `-t -- backup_*.tar.gz` | List only files matching a pattern, newest first | backup |
-| `ls` | `-l` | Long listing (permissions, size, date) | deploy |
-| `mv` | `mv -- src dest/` | Move a file or folder into a folder (`--` makes names starting with `-` safe) | organizer |
-| `mkdir` | `-p` | Create the directory and any parents, no error if it exists | organizer |
-| `rm` | `-f` | Force, ignore missing files | backup |
-| `rm` | `-rf` | Remove recursively and forcefully | ec2 |
-| `rm` | `--` | End of options, so filenames starting with `-` are safe | backup |
-| `date` | `+%y-%m-%d-%H-%M-%S` | Print the date/time in a custom format (`%y` = 2-digit year) | backup, nginx, health, organizer |
-
-### Archives and downloads
-
-| Command | Flags / usage | Meaning | Used in |
-|---|---|---|---|
-| `tar` | `-czvf file.tar.gz dir` | Create (`c`) a gzip-compressed (`z`) archive of `dir`, listing each file (`v`), written to `file.tar.gz` (`f`) | backup |
-| `tar` | `-xzvf file.tar.gz -C dir` | Extract (`x`) an archive into `dir` | backup (restore) |
-| `unzip` | `-q` | Quiet, no file listing | ec2 |
-| `unzip` | `-o` | Overwrite existing files without asking | ec2 |
-| `curl` | `-f` | Fail on HTTP errors instead of saving the error page | ec2 |
-| `curl` | `-s` | Silent, no progress bar | ec2 |
-| `curl` | `-S` | Still show errors when used with `-s` | ec2 |
-| `curl` | `-L` | Follow redirects | ec2 |
-| `curl` | `-o file` | Save output to a file | ec2 |
-
-### Packages, services and system info
-
-| Command | Flags / usage | Meaning | Used in |
-|---|---|---|---|
-| `sudo` | `sudo cmd` | Run a command as root | ec2, backup, deploy, health, users |
-| `apt-get` | `update` | Refresh the package list | deploy, health |
-| `apt-get` | `install -y pkg` | Install a package, answering yes automatically | ec2, deploy, health |
-| `apt` | `update`, `install pkg -y` | Same as `apt-get`, newer front end | backup |
-| `dpkg` | `-s pkg` | Show package status; fails if not installed | deploy |
-| `systemctl` | `enable --now svc` | Start a service now and on every boot | deploy |
-| `systemctl` | `is-active svc` | Print `active`, `inactive`, etc. | health |
-| `chown` | `chown user file` | Change the owner of a file | deploy |
-| `which` | `which cmd` | Print the path of a command | health |
-| `mpstat` | `1 3` | CPU stats: 1-second interval, 3 samples, plus an average | health |
-| `free` | `free` | Memory usage in KB | health |
-| `df` | `-h /` | Disk usage of `/` in human-readable units | health |
-
-### Git and Docker
-
-| Command | Flags / usage | Meaning | Used in |
-|---|---|---|---|
-| `git clone` | `git clone url` | Download a repository | deploy |
-| `docker build` | `-t name .` | Build an image from the current directory and tag it | deploy |
-| `docker run` | `-d` | Run in the background (detached) | deploy |
-| `docker run` | `--name name` | Give the container a name | deploy |
-| `docker run` | `-p 8000:8000` | Map host port to container port | deploy |
-| `docker ps` | `-a` | List all containers, including stopped ones | deploy |
-| `docker ps` | `--format '{{.Names}}'` | Print only the container names | deploy |
-| `docker rm` | `-f` | Force remove a container, even if running | deploy |
-
-### AWS CLI
-
-| Command | Flags | Meaning | Used in |
-|---|---|---|---|
-| `aws --version` | | Print the installed version | ec2 |
-| `aws ec2 run-instances` | `--image-id` | AMI to launch | ec2 |
-| | `--instance-type` | Size, e.g. `t2.micro` | ec2 |
-| | `--key-name` | SSH key pair name | ec2 |
-| | `--subnet-id` | Subnet to launch in | ec2 |
-| | `--security-group-ids` | Security group to attach | ec2 |
-| | `--tag-specifications` | Tags to set, used here for the `Name` tag | ec2 |
-| | `--query` | Filter the JSON output (JMESPath), e.g. `Instances[0].InstanceId` | ec2 |
-| | `--output text` | Plain text instead of JSON | ec2 |
-| `aws ec2 describe-instances` | `--instance-ids` | Which instance to look up | ec2 |
-| | `--query`, `--output` | Same as above; used to read the instance state | ec2 |
-
-### User and group management
-
-| Command | Flags / usage | Meaning | Used in |
-|---|---|---|---|
-| `getent` | `group name` / `passwd name` | Look up a group or user; empty output means it does not exist | users |
-| `groupadd` | `groupadd name` | Create a group | users |
-| `useradd` | `-m` | Create the home directory | users |
-| `useradd` | `-g group` | Set the user's primary group | users |
-| `chpasswd` | reads `user:password` from stdin | Set a password | users |
-| `passwd` | `-e user` | Expire the password, forcing a change at next login | users |
-| `openssl` | `rand -base64 12` | Generate 12 random bytes, base64-encoded (used as a password) | users |
-
-### Bash built-ins and syntax
-
-| Item | Meaning | Used in |
-|---|---|---|
-| `command -v cmd` | Check whether a command exists (prints its path) | ec2, backup |
-| `echo -e` | Print and interpret escape sequences such as `\n` | ec2, deploy, nginx, users |
-| `set -euo pipefail` | Stop on any error (`-e`), on unset variables (`-u`), and on a failure anywhere in a pipe (`pipefail`) | backup, nginx, organizer |
-| `[[ ... ]]` | Bash test, safer than `[ ]` with empty or spaced values | backup, nginx, organizer |
-| `mapfile -t arr` | Read lines into an array, dropping the trailing newline | backup, nginx, organizer |
-| `< <(cmd)` | Process substitution: feed a command's output to another command as if it were a file | backup, nginx, organizer |
-| `local var` | Variable that exists only inside the function | ec2, deploy, organizer |
-| `sleep 5` | Wait 5 seconds | ec2 |
-| `cd dir` | Change directory | deploy, backup |
-| `case ... esac` | Match a value against several patterns | ec2 |
-| `>>` | Append output to a file | nginx, health, users |
-| `2>&1`, `>/dev/null` | Redirect errors to the same place as output; discard output | ec2, deploy |
-| `2>/dev/null` | Discard only error messages | backup |
-| `$( ... )` | Command substitution: use a command's output as a value | ec2, backup, nginx, health, users, organizer |
-| `${arr[@]:4}` | Array slice from index 4 onward (the files to delete) | backup |
-| `${#arr[@]}` | Number of elements in an array | backup, organizer |
-| `for x in "${arr[@]}"` | Loop over every element of an array | backup, nginx, organizer |
-| `if ... elif ... else ... fi` | Choose between several branches | organizer |
-| `if cmd; then` | Run a command and branch on whether it succeeded, without `$?` | organizer |
-| `return 0` | Leave a function early | organizer |
-
-**Special variables:** `$1`, `$2`... (arguments), `$@` / `$*` (all arguments), `$#` (argument count), `$0` (script name), `$?` (exit code of the last command), `$USER` (current user).
-
-**Test operators** (inside `[ ]` or `[[ ]]`):
-
-| Operator | Meaning | Used in |
-|---|---|---|
-| `-z str` | String is empty | ec2, health, users |
-| `-n str` | String is not empty | backup |
-| `-d path` | Path is a directory | backup, deploy, organizer |
-| `-f path` | Path is a regular file | nginx |
-| `-e path` | Path exists | backup, organizer |
-| `! test` | Negate a test, e.g. `[[ ! -d dir ]]` | backup, organizer |
-| `-eq`, `-ne` | Numbers equal / not equal | ec2, backup, nginx, users, organizer |
-| `-ge`, `-lt` | Greater or equal / less than | ec2, health |
-| `=`, `==` | String equals | ec2, health, organizer |
-| `a \|\| b` | OR: true if either test is true, e.g. `[[ $t == 'JPEG' \|\| $t == 'PNG' ]]` | organizer |
-| `a && b` | AND: true only if both tests are true | organizer |
-| `== *.css` | Pattern match inside `[[ ]]`: the string ends in `.css` | organizer |
+- strict mode, variables, quoting, arguments, exit codes, tests, loops, functions and arrays
+- tables of commands grouped by task, each with the scripts that use it
+- an `awk` guide and copy-paste recipes, for example "top 5 IPs" or "keep the N newest backups"
+- gotchas taken from real bugs in this repo, plus self-test interview questions
 
 ## Getting started
 
